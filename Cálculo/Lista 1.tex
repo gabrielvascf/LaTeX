@@ -1,0 +1,39 @@
+\documentclass{jhwhw}
+\usepackage{tikz}
+\title{Cálculo}
+\author{Gabriel Vasconcelos Ferreira}
+
+\begin{document}
+\maketitle
+\problem{Um móvel realiza um movimento obedecendo à função $S = 2t -18t + 36$, sendo $s$ medido em metros e $t$ em segundos. Em que instante o móvel muda de sentido?}
+\solution{
+  No $t$ do vértice: ($x_v$)
+  \[
+    S = 2t^2-18t+36
+    x_v = \frac{-b}{2a} = \frac{-(-18)}{2*2} = \frac{18}{4} = 4.5s
+  \]
+}
+\problem{Um canhão atira um projétil (figura), descrevendo a função $s = -9t +120t$, sendo $s$ em metros e t em segundos. Calcule o ponto máximo da altura atingida pelo projétil.}
+\solution{
+  \[S_v = y_v = \frac{-\Delta}{4a} = \frac{}{}\]
+}
+
+\problem{Desenhe o gráfico das funções:}
+\begin{enumerate}
+  \item $y = \pi$
+  \item $y = -\frac{3}{2}$
+  \item $y = -x + 5$
+  \item $y = 2x + 4$
+\end{enumerate}
+\solution{
+  \part
+  \begin{tikzpicture}
+    \draw[->] (-3, 0) -- (4.2, 0) node[right] {$x$};
+    \draw[->] (0, -3) -- (0, 4.2) node[above] {$y$};
+    \draw[scale=1, domain=-3:4.2] plot(\x, {3.1415});
+  \end{tikzpicture}
+}
+\problem{
+A tarifa de táxi comum em São Paulo, em outubro de 2023, foi definida da seguinte forma: R\$ 6,00 de bandeirada (custo fixo) mais R\$ 4,25 por km rodado (custo variável). Qual é a fórmula ou regra que descreve essa situação? Apresente o gráfico dessa situação. Determine o valor a ser pago (custo total) por uma corrida relativa a um percurso de 5 km.
+}
+\end{document}

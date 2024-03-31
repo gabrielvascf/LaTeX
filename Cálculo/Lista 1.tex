@@ -1,67 +1,294 @@
 \documentclass{jhwhw}
 \usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \usepackage{tikz}
+\usepackage[portuguese]{babel}
 \title{Cálculo}
 \author{Gabriel Vasconcelos Ferreira}
 \begin{document}
 \maketitle
-\problem{Um móvel realiza um movimento obedecendo à função $S = 2t -18t + 36$, sendo $s$ medido em metros e $t$ em segundos. Em que instante o móvel muda de sentido?}
-\solution{
-	No $t$ do vértice: ($x_v$)
-	\[
-		S = 2t^2-18t+36
-		x_v = \frac{-b}{2a} = \frac{-(-18)}{2*2} = \frac{18}{4} = 4.5s
-	\]
-}
-\problem{Um canhão atira um projétil (figura), descrevendo a função $s = -9t +120t$, sendo $s$ em metros e t em segundos. Calcule o ponto máximo da altura atingida pelo projétil.}
-\solution{
-	\[S_v = y_v = \frac{-\Delta}{4a} = \frac{}{}\]
-}
-\problem{Desenhe o gráfico das funções:}
+\chapter{Função constante / Função de 1º grau}
+\problem{Faça o gráfico das funções:}
 \begin{enumerate}
 	\item $y = \pi$
 	\item $y = -\frac{3}{2}$
 	\item $y = -x + 5$
 	\item $y = 2x + 4$
 \end{enumerate}
+\problem{A tarifa de táxi comum em São Paulo, em outubro de 2023, foi definida da seguinte forma: R\$ 6,00 de bandeirada (custo fixo) mais R\$ 4,25 por km rodado (custo variável). Qual é a fórmula ou regra que descreve essa situação? Apresente o gráfico dessa situação. Determine o valor a ser pago (custo total) por uma corrida relativa a um percurso de 5 km.}
+\newpage
+\soln{Problema 1: }
+\soln{A) \(y = \pi\)}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+				xlabel={$x$},
+				ylabel={$y$},
+				axis lines=middle,
+			]
+			\addplot[red,thick]{pi};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+\soln{B) \(y = -\frac{3}{2}\)}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+				xlabel={$x$},
+				ylabel={$y$},
+				xmin=-2, xmax = 2,
+				ymin=-2, ymax = 2,
+				domain=-2:2,
+				samples=100,
+				axis lines=middle,
+			]
+			\addplot[red,thick]{-3/2};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+\soln{C) \(y =-x+5\)}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+				xlabel={$x$},
+				ylabel={$y$},
+				axis lines=middle,
+			]
+			\addplot[red,thick]{-x+5};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+\soln{D) \(y = 2x+4\)}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+				xlabel={$x$},
+				ylabel={$y$},
+				axis lines=middle,
+			]
+			\addplot[red,thick]{2*x+4};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+\newpage
+\soln{Problema 2: }
 \solution{
-	\part
-	\(y = \pi\)
+	\part{Fórmula:}
+	\[f(t) = 6 + 4.25t\]
+	\part{Gráfico da função:}
 	\begin{center}
-		\begin{tikzpicture}
-			% eixos
-			\draw[->] (-.5, 0) -- (4, 0) node[right] {$x$};
-			\draw[->] (0, -.5) -- (0, 4) node[above] {$y$};
-			% marcações
-			\foreach \x in {0.5, 1, ..., 3.5} {
-					\draw (\x cm, 1pt) -- (\x cm, -1pt) node[anchor=north] {\scriptsize $\x$};
-				}
-			\foreach \y in {0.5, 1, ..., 3.5} {
-					\draw (1pt, \y cm) -- (-1pt, \y cm) node[anchor=east] {\scriptsize $\y$};
-				}
-			\draw[scale=1, domain=-.5:4, <->] plot(\x, {pi}) node[right]{$y = \pi$};
-		\end{tikzpicture}
-	\end{center}
-	\part \(y = -\frac{3}{2}\)
-	\begin{center}
-
 		\begin{tikzpicture}
 			\begin{axis}[
 					xlabel={$x$},
 					ylabel={$y$},
-					domain=-3:3.2,
-					samples=100,
+					domain=0:6,
 					axis lines=middle,
-					grid
 				]
-				\addplot[red,thick]{pi};
+				\addplot[red,thick]{6+4.25*x};
 			\end{axis}
 		\end{tikzpicture}
-
-
+	\end{center}
+	\part{Valor para 5km:}
+	\begin{center}
+		\(f(t) = 6 + 4.25t\)\\
+		\(f(5) = 6 + 4.25*5\)\\
+		\(f(5) = 6 + 21.25\)\\
+		\(f(5) = 27.25\)\\
 	\end{center}
 }
+
+\chapter{Função de 2º grau}
+\setcounter{ProblemNum}{0}
+\setcounter{SubProblemNum}{0}
+\problem{Faça o gráfico das funções.}
+\begin{enumerate}
+	\item $y = -x^2 + 1$
+	\item $y = x^2 - 2x$
+	\item $y = x^2 -2x - 3$
+	\item $y = -x^2 + 3x$
+\end{enumerate}
 \problem{
-A tarifa de táxi comum em São Paulo, em outubro de 2023, foi definida da seguinte forma: R\$ 6,00 de bandeirada (custo fixo) mais R\$ 4,25 por km rodado (custo variável). Qual é a fórmula ou regra que descreve essa situação? Apresente o gráfico dessa situação. Determine o valor a ser pago (custo total) por uma corrida relativa a um percurso de 5 km.
+Um foguete e atirado para cima de modo que sua altura $h$, em relação ao solo, é dada, em função do tempo, pela função $h = 10 + 120t - 5t^2$, em que o tempo é dado em segundos e a altura é dada em metros. Calcule:
 }
+\begin{enumerate}
+	\item A altura do foguete 2 segundos depois de ser lançado.
+	\item O tempo necessário para o foguete atingir a altura de 485 metros.
+\end{enumerate}
+\problem{
+A receita $R$ de uma pequena empresa, entre os dias 1 e 30 do mês, é dada, em função do dia $d$ do mês, pela função $R(d) = -d^2 + 31d - 30$, enquanto o custo $C$ é dada por $C(d) = 11d - 19$.
+}
+\begin{enumerate}
+	\item Encontre a função lucro $L$, sendo que o lucro é igual à Receita menos Custo, ou seja, $L(d) = R(d) - C(d)$.
+	\item Em que dias o lucro da empresa é zero?
+\end{enumerate}
+\newpage
+\problem{
+O saldo de uma conta bancária é dado por $S = t^2 - 11t + 24$, onde $S$ é o saldo em reais e $t$ é o tempo em dias. Determine:
+}
+\begin{enumerate}
+	\item em que dias o saldo é zero;
+	\item em que período o saldo é negativo;
+	\item em que dia o saldo é mínimo;
+	\item o saldo mínimo, em reais.
+\end{enumerate}
+\soln{Problema 1}
+\part{
+	$y = -x^2 + 1$
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel={$x$},
+					ylabel={$y$},
+					domain=-6:6,
+					axis lines=middle,
+					xmin=-6,
+					ymin=-8,
+					xmax =6,
+					ymax= 2,
+					grid = both,
+					minor tick num = 1,
+					enlargelimits={abs=0.5},
+				]
+				\addplot [red, thick, samples=50] {-x^2 + 1};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+}
+\part{
+	$y = x^2 - 2x$
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel={$x$},
+					ylabel={$y$},
+					axis lines=middle,
+					xmin=-2,
+					ymin=-1,
+					xmax =4,
+					ymax= 8,
+					grid=both,
+					minor tick num = 1,
+					enlargelimits={abs=0.5},
+				]
+				\addplot [red, thick, samples=50] {x^2 - 2*x};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+}
+\part{
+	$y = x^2 -2x - 3$
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel={$x$},
+					ylabel={$y$},
+					axis lines=middle,
+					xmin=-4,
+					ymin=-4,
+					xmax =8,
+					ymax= 8,
+					grid=both,
+					minor tick num = 1,
+					enlargelimits={abs=0.5},
+				]
+				\addplot [red, thick, samples=50] {x^2 - 2*x - 3};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+}
+\part{
+	$y = -x^2 + 3x$
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel={$x$},
+					ylabel={$y$},
+					axis lines=middle,
+					xmin=-4,
+					ymin=-4,
+					xmax =4,
+					ymax= 3,
+					grid=both,
+					minor tick num = 1,
+					enlargelimits={abs=0.5},
+				]
+				\addplot [red, thick, samples=50] {-x^2 + 3*x};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+}
+\soln{Problema 2: }
+\setcounter{SubProblemNum}{0}
+\(h = 10 + 120t - 5t^2\)
+\part{
+	A altura do foguete 2 segundos após ser lançado:
+	\begin{gather*}
+		h = 10 + 120t - 5t^2    \\
+		h = 10 + 120*2 - 5(2^2) \\
+		h = 10 + 240 - 5*4      \\
+		h = 250 - 20            \\
+		h = 230	\\
+	\end{gather*}
+}
+\part{
+	O tempo necessário para o foguete atingir a altura de 485 metros:
+	\begin{gather*}
+		h = 10 + 120t - 5t^2    \\
+		485 = 10 + 120t - 5t^2 \\
+		485 - 10 = 120t - 5t^2 \\
+		\frac{475}{120} = -5t^2 \\
+		\frac{\frac{485}{120}}{-5} = t^2
+	\end{gather*}
+}
+\chapter{Função exponencial e logaritmica}
+\setcounter{ProblemNum}{0}
+\setcounter{SubProblemNum}{0}
+\problem{Faça o gráfico das funções}
+\begin{enumerate}
+	\item $y = 3^x$
+	\item $y = \frac{1}{3}^x$
+	\item $y = log_3(x)$
+	\item $y = log_e(x) = ln(x)$
+\end{enumerate}
+\problem{
+A função $P(t) = 300000*2^{0.05t}$ fornece o número $P$ de milhares de habitantes de uma cidade, em função do tempo $t$, em anos, a partir do ano de 1990.
+}
+\begin{enumerate}
+	\item Determine o número de habitantes dessa cidade tem $t = 0$, que corresponde ao ano de 1990.
+	\item Quantos habitantes, aproximadamente, espera-se que ela tenha após 10 anos, ou seja, no ano 2000?
+	\item Faça o gráfico da função.
+\end{enumerate}
+\newpage
+\problem{
+Ao observar, em um microscópio, uma cultura de bactérias, um cientista percebeu que elas se reproduzem como uma função exponencial. A lei de formação que relaciona a quantidade de bactérias existentes com o tempo é igual a $f(t) = Q * 2^{t-1}$, em que $Q$ é a quantidade inicial de bactérias e $t$ é o tempo em horas. Se nessa cultura havia, inicialmente, 700 bactérias, a quantidade de bactérias após 4 horas será de (apresente os cálculos):
+}
+\begin{enumerate}
+	\item 7000
+	\item 8700
+	\item 15300
+	\item 11200
+	\item 5600
+\end{enumerate}
+
+\problem{
+Vamos supor um automóvel, com valor inicial de R\$109.000,00. Para fins contábeis, a Receita Federal estipula que a taxa de depreciação de veículos é de 20\% ao ano. Essa taxa só é utilizada para fins contábeis.
+}
+\begin{enumerate}
+	\item Apresente a função dessa situação através de uma fórmula.
+	\item Qual seria o valor aproximado do automóvel, 5 anos após o momento inicial?
+	\item Qual o valor aproximado do automóvel após 10, 15 e 20 de compra?
+	\item Faça o gráfico da função.
+\end{enumerate}
+
+\chapter{Função seno e cosseno}
+\setcounter{ProblemNum}{0}
+\setcounter{SubProblemNum}{0}
+\problem{Faça o gráfico das funções:}
+\begin{enumerate}
+	\item $y = 2 cos(x)$
+	\item $y = 1 + cos(x)$
+	\item $y = 2 + sin(x)$
+	\item $y = sin(\frac{x}{2})$
+\end{enumerate}
+
 \end{document}

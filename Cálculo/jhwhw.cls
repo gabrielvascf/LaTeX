@@ -57,7 +57,7 @@
 \renewcommand{\theSubProblemNum}{\alph{SubProblemNum}}
 
 
-\newcommand*{\anyproblem}[1]{\newpage\subsection*{#1}}
+\newcommand*{\anyproblem}[1]{\subsection*{#1}}
 \newcommand*{\problem}[1]{\stepcounter{ProblemNum} %
    \anyproblem{Problema \theProblemNum. \; #1}}
 \newcommand*{\soln}[1]{\subsubsection*{#1}}

@@ -227,7 +227,7 @@ O saldo de uma conta bancária é dado por $S = t^2 - 11t + 24$, onde $S$ é o s
 		h = 10 + 120*2 - 5(2^2) \\
 		h = 10 + 240 - 5*4      \\
 		h = 250 - 20            \\
-		h = 230	\\
+		h = 230 \text{ metros}
 	\end{gather*}
 }
 \part{
@@ -235,10 +235,58 @@ O saldo de uma conta bancária é dado por $S = t^2 - 11t + 24$, onde $S$ é o s
 	\begin{gather*}
 		h = 10 + 120t - 5t^2    \\
 		485 = 10 + 120t - 5t^2 \\
-		485 - 10 = 120t - 5t^2 \\
-		\frac{475}{120} = -5t^2 \\
-		\frac{\frac{485}{120}}{-5} = t^2
+		5t^2 + 120t - 475 = 0\\
 	\end{gather*}
+	Usando a fórmula de báskara:
+	\begin{equation*}
+		S = \frac{-b \pm \sqrt{\Delta}}{2a} \\
+	\end{equation*}
+	\begin{gather*}
+		\begin{split}
+			\Delta & = b^2-4ac            \\
+			       & = 120^2 - 4*10*-475  \\
+			       & = 1440 - (40*-19000) \\
+			       & = 1440 + 19000       \\
+			       & = 20440              \\
+		\end{split}
+		\\
+		\begin{split}
+			S & = \frac{-120 \pm \sqrt{20440}}{20} \\
+			  & = 5, 19
+		\end{split}
+	\end{gather*}
+	\emph{5 segundos.}
+}
+\soln{Problema 3}
+\part{
+	Encontre a função lucro $L$, sendo que o lucro é igual à Receita menos Custo, ou seja, $L(d) = R(d) - C(d)$.
+	\begin{equation*}
+		R(d) = -d^2 + 31d-30
+	\end{equation*}
+	\begin{equation*}
+		C(d) = 11d - 19
+	\end{equation*}
+	\begin{equation} \label{lucro}
+		\begin{split}
+			L(d) & = (-d^2 + 31d - 30) - (11d - 19) \\
+			     & = -d^2 + 31d - 30 - 11d - 19     \\
+			     & = -d^2 + 21d - 49                \\
+		\end{split}
+	\end{equation}
+}
+\part{
+	Em que dias o lucro da empresa é zero? \\
+	Usando a equação para lucro (\ref{lucro}), podemos calcular:
+	\begin{equation*}
+		\begin{split}
+			L(x) = 0                                              \\
+			-d^2 + 21d - 49 = 0                                   \\
+			\text{Usando a fórmula de báskara: }                  \\
+			S & = \frac{-21 \pm \sqrt{21^2 - 4 * -1 * -49}}{2*-1} \\
+			  & = \frac{-21 \pm \sqrt{441 - 196}}{-2}             \\
+		\end{split}
+	\end{equation*}
+
 }
 \chapter{Função exponencial e logaritmica}
 \setcounter{ProblemNum}{0}

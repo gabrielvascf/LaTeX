@@ -3,7 +3,7 @@
 \pgfplotsset{compat=1.18}
 \usepackage{tikz}
 \usepackage[portuguese]{babel}
-\title{Cálculo}
+\title{Cálculo\\Lista 1 - Funções}
 \author{Gabriel Vasconcelos Ferreira}
 \begin{document}
 \maketitle
@@ -25,6 +25,9 @@
 				xlabel={$x$},
 				ylabel={$y$},
 				axis lines=middle,
+				grid=both,
+				minor tick num = 1,
+				enlargelimits={abs=0.5}
 			]
 			\addplot[red,thick]{pi};
 		\end{axis}
@@ -36,11 +39,11 @@
 		\begin{axis}[
 				xlabel={$x$},
 				ylabel={$y$},
-				xmin=-2, xmax = 2,
-				ymin=-2, ymax = 2,
-				domain=-2:2,
-				samples=100,
+				ymax = 1,
 				axis lines=middle,
+				grid=both,
+				minor tick num = 1,
+				enlargelimits={abs=0.6}
 			]
 			\addplot[red,thick]{-3/2};
 		\end{axis}
@@ -53,6 +56,9 @@
 				xlabel={$x$},
 				ylabel={$y$},
 				axis lines=middle,
+				grid=both,
+				minor tick num = 1,
+				enlargelimits={abs=0.5}
 			]
 			\addplot[red,thick]{-x+5};
 		\end{axis}
@@ -65,6 +71,9 @@
 				xlabel={$x$},
 				ylabel={$y$},
 				axis lines=middle,
+				grid=both,
+				minor tick num = 1,
+				enlargelimits={abs=0.5}
 			]
 			\addplot[red,thick]{2*x+4};
 		\end{axis}
@@ -72,31 +81,31 @@
 \end{center}
 \newpage
 \soln{Problema 2: }
-\solution{
-	\part{Fórmula:}
-	\[f(t) = 6 + 4.25t\]
-	\part{Gráfico da função:}
-	\begin{center}
-		\begin{tikzpicture}
-			\begin{axis}[
-					xlabel={$x$},
-					ylabel={$y$},
-					domain=0:6,
-					axis lines=middle,
-				]
-				\addplot[red,thick]{6+4.25*x};
-			\end{axis}
-		\end{tikzpicture}
-	\end{center}
-	\part{Valor para 5km:}
-	\begin{center}
-		\(f(t) = 6 + 4.25t\)\\
-		\(f(5) = 6 + 4.25*5\)\\
-		\(f(5) = 6 + 21.25\)\\
-		\(f(5) = 27.25\)\\
-	\end{center}
-}
-
+\part{Fórmula:}
+\[f(t) = 6 + 4.25t\]
+\part{Gráfico da função:}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+				xlabel={$x$},
+				ylabel={$y$},
+				domain=0:6,
+				axis lines=middle,
+				grid=both,
+				minor tick num = 1,
+				enlargelimits={abs=0.5}
+			]
+			\addplot[red,thick]{6+4.25*x};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+\part{Valor para 5km:}
+\begin{center}
+	\(f(t) = 6 + 4.25t\)\\
+	\(f(5) = 6 + 4.25*5\)\\
+	\(f(5) = 6 + 21.25\)\\
+	\(f(5) = 27.25\)\\
+\end{center}
 \chapter{Função de 2º grau}
 \setcounter{ProblemNum}{0}
 \setcounter{SubProblemNum}{0}
@@ -257,7 +266,8 @@ O saldo de uma conta bancária é dado por $S = t^2 - 11t + 24$, onde $S$ é o s
 	\end{gather*}
 	\emph{5 segundos.}
 }
-\soln{Problema 3}
+\soln{Problema 3: }
+\setcounter{SubProblemNum}{0}
 \part{
 	Encontre a função lucro $L$, sendo que o lucro é igual à Receita menos Custo, ou seja, $L(d) = R(d) - C(d)$.
 	\begin{equation*}
@@ -275,18 +285,80 @@ O saldo de uma conta bancária é dado por $S = t^2 - 11t + 24$, onde $S$ é o s
 	\end{equation}
 }
 \part{
-	Em que dias o lucro da empresa é zero? \\
+	Em que dias o lucro da empresa é zero?
 	Usando a equação para lucro (\ref{lucro}), podemos calcular:
-	\begin{equation*}
-		\begin{split}
-			L(x) = 0                                              \\
-			-d^2 + 21d - 49 = 0                                   \\
-			\text{Usando a fórmula de báskara: }                  \\
-			S & = \frac{-21 \pm \sqrt{21^2 - 4 * -1 * -49}}{2*-1} \\
-			  & = \frac{-21 \pm \sqrt{441 - 196}}{-2}             \\
-		\end{split}
-	\end{equation*}
-
+	\begin{multline*}
+		\\L(x) = 0                                              \\
+		-d^2 + 21d - 49 = 0                                   \\
+		\text{Usando a fórmula de báskara: }                  \\
+		S = \frac{-21 \pm \sqrt{21^2 - 4 * -1 * -49}}{2*-1} \\
+		S = \frac{-21 \pm \sqrt{441 - 196}}{-2}             \\
+		S = \frac{-21 \pm \sqrt{245}}{-2} \\
+		S = \frac{-21 + \sqrt{245}}{-2}, \frac{-21 - \sqrt{245}}{-2} \\
+		S = 2.6737\dots, 18.3262\dots
+	\end{multline*}
+	\emph{Aproximadamente nos dias 3 e 18 de cada mês.}
+}
+\soln{
+	Problema 4: O saldo de uma conta bancária é dado por $S = t^2 - 11t+24$ onde $S$ é o saldo em reais e $t$ é o tempo em dias. Determine:
+}
+\setcounter{SubProblemNum}{0}
+\part{
+	Em que dias o saldo é zero:
+	\begin{multline*}
+		\\S(t) = t^2 - 11t + 24 \\
+		\text{Usando a fórmula da báskara: }\\
+		S = \frac{11 \pm \sqrt{-11^2 - 4 * 1 * 24}}{2*1}\\
+		S = \frac{11 \pm \sqrt{121 - 96}}{2} \\
+		S = \frac{11 \pm \sqrt{25}}{2} \\
+		S = \frac{11 \pm 5}{2} \\
+		S = \frac{11 + 5}{2}, \frac{11 - 5}{2} \\
+		S = \frac{16}{2}, \frac{6}{2} \\
+		S = 8, 3
+	\end{multline*}
+	\emph{Dias 3 e 8.}
+}
+\part{
+	Em que período o saldo é negativo:
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel={$x$},
+					ylabel={$y$},
+					axis lines=middle,
+					xmin=0,
+					ymin=-10,
+					xmax = 15,
+					ymax= 24,
+					grid=both,
+					minor tick num = 1,
+					enlargelimits={abs=0.5}]
+				\addplot[red, thick, domain=0:13, samples=50] {x^2 - 11*x + 24};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+	Pelo gráfico, e sabendo que os zeros da função estão em $x = \{3, 8\}$, o saldo da conta será negativo entre os dias 3 e 8.
+}
+\part{
+	Em que dia o saldo é mínimo:
+	\begin{multline*}
+		\text{Pela fórmula do vértice da parábola:}
+		\\x_v = -\frac{b}{2a} \\
+		x_v = -\frac{-11}{2} \\
+		x_v = 5.5
+	\end{multline*}
+	\emph{Entre o dia 5 e 6.}
+}
+\part{
+	O saldo mínimo, em reais:
+	\begin{multline*}
+		\text{Sabendo que o momento de saldo mínimo é 5.5: }\\
+		S(t) = t^{2} - 11t + 24 \\
+		S(5.5) = 5.5^{2} - 11*5.5 + 24 \\
+		S(5.5) = 30.25 - 60.5 + 24 \\
+		S(5.5) = -6.25
+	\end{multline*}
+	\emph{R\$6,25.}
 }
 \chapter{Função exponencial e logaritmica}
 \setcounter{ProblemNum}{0}
@@ -327,7 +399,209 @@ Vamos supor um automóvel, com valor inicial de R\$109.000,00. Para fins contáb
 	\item Qual o valor aproximado do automóvel após 10, 15 e 20 de compra?
 	\item Faça o gráfico da função.
 \end{enumerate}
+\setcounter{SubProblemNum}{0}
+\newpage
+\soln{Faça o gráfico das funções:}
+\part{
+	$y = 3^{x}$
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel={$x$},
+					ylabel={$y$},
+					axis lines=middle,
+					xmin=-4,
+					ymin=0,
+					xmax = 4,
+					ymax= 20,
+					grid=both,
+					minor tick num = 1,
+					enlargelimits={abs=0.5}
+				]
+				\addplot[red, thick, domain=-5:5, samples=50] {3^x};
 
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+}
+\part{
+	$y = \frac{1}{3}^{x}$
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel={$x$},
+					ylabel={$y$},
+					axis lines=middle,
+					xmin=-4,
+					ymin=0,
+					xmax = 4,
+					ymax= 20,
+					grid=both,
+					minor tick num = 1,
+					enlargelimits={abs=0.5}
+				]
+				\addplot[red, thick, domain=-5:5, samples=30] {(1/3)^x};
+
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+}
+\newpage
+\part{
+	$y = log_3(x)$
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel={$x$},
+					ylabel={$y$},
+					axis lines=middle,
+					xmin=-4,
+					ymin=-4,
+					xmax = 4,
+					ymax= 4,
+					grid=both,
+					minor tick num = 1,
+					enlargelimits={abs=0.5}
+				]
+				\addplot[red, thick, domain=-1:5, samples=500] {ln(x)/ln(3)};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+}
+\part{
+	$y = log_e(x) = ln(x)$
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel={$x$},
+					ylabel={$y$},
+					axis lines=middle,
+					xmin=-4,
+					ymin=-4,
+					xmax = 4,
+					ymax= 4,
+					grid=both,
+					minor tick num = 1,
+					enlargelimits={abs=0.5}
+				]
+				\addplot[red, thick, domain=-1:5, samples=250] {ln(x)};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+}
+\setcounter{SubProblemNum}{0}
+\soln{
+	Problema 2: A função $P(t) = 300000*2^{0.05t}$ fornece o número $P$ de milhares de habitantes de uma cidade, em função do tempo $t$, em anos, a partir do ano de 1990.
+}
+\part{
+	Determine o número de habitantes dessa cidade em $t = 0$, que corresponde ao ano de 1990.
+	\begin{multline*}
+		P(t) = 300000*2^{0.05t}\\
+		P(0) = 300000 * 2^{0} \\
+		P(0) = 300000 * 1\\
+		P(0) = 300000 \text{ habitantes}
+	\end{multline*}
+}
+\part{
+	Quantos habitantes, aproximadamente, espera-se que ela tenha após 10 anos, ou seja, no ano 2000?
+	\begin{multline*}
+		P(t) = 300000*2^{0.05t}\\
+		P(10) = 300000 * 2^{0.05*10} \\
+		P(10) = 300000 * 2^{0.5}\\
+		P(10) = 300000 * \sqrt{2} \\
+		P(10) = 424264 \text{ habitantes}
+	\end{multline*}
+}
+\part{
+	Faça o gráfico da função.
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel={$x$},
+					ylabel={$y$},
+					axis lines=middle,
+					% xmin=-4,
+					% ymin=-4,
+					% xmax = 4,
+					% ymax= 4,
+					grid=both,
+					minor tick num = 1,
+					enlargelimits={abs=0.5}
+				]
+				\addplot[red, thick, domain = 0:15]{300000*2^(0.05*x)};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+}
+\soln{
+	Problema 3: Ao observar, em um microscópio, uma cultura de bactérias, um cientista, percebeu que elas se reproduzem como uma função exponencial. A lei de formação que relaciona a quantidade de bactérias existentes com o tempo é igual a $f(t) = Q * 2^{t-1}$, em que nessa cultura havia, inicialmente, 700 bactérias, a quantidade de bactérias após 4 horas será de:
+}
+\part{
+	\begin{multline*}
+		f(t) = Q * 2^{t-1}, Q = 700\\
+		f(4) = 700*2^{4-1}\\
+		f(4) = 700 * 2^3\\
+		f(4) = 700 * 8\\
+		f(4) = 5600 \text{ bactérias}
+	\end{multline*}
+}
+\soln{
+	Problema 4: Vamos supor um automóvel, com valor inicial de R\$109.000,00. Para fins contábeis, a Receita Federal estipula que a taxa de depreciação de veículos é de 20\% ao ano. Essa taxa só é utilizada para fins contábeis.
+}
+\setcounter{SubProblemNum}{0}
+\part{
+	Apresente a função dessa situação através de uma fórmula.
+	\begin{multline*}
+		M = C * (1-i)^t\\
+		M = 109000 * (1-0.2)^{t}\\
+		M = 109000 * 0.8^{t}
+	\end{multline*}
+}
+\part{
+	Qual seria o valor aproximado do automóvel, 5 anos após o momento inicial?
+	\begin{multline*}
+		M = 109000 * 0.8^{t} \\
+		M = 109000 * 0.8^{5} \\
+		M = 109000 * 0.32768 \\
+		M = 35717.12
+	\end{multline*}
+}
+\part{
+	Qual o valor aproximado do automóvel após, 10, 15 e 20 anos de compra?
+	\begin{align*}
+		M & = 109000 * 0.8^{10}     &
+		M & = 109000 * 0.8^{15}     &
+		M & = 109000 * 0.8^{20}       \\
+		  & = 109000 * 0.10737\dots &
+		  & = 109000 * 0.03518\dots &
+		  & = 109000 * 0.01152\dots   \\
+		  & = 11703.78\dots         &
+		  & = 3835.09\dots          &
+		  & = 1256.68\dots
+	\end{align*}
+}
+\newpage
+\part{
+	Faça o gráfico da função:
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel={$x$},
+					ylabel={$y$},
+					axis lines=middle,
+					% xmin=-4,
+					% ymin=-4,
+					% xmax = 4,
+					% ymax= 4,
+					grid=both,
+					minor tick num = 1,
+					enlargelimits={abs=0.5}
+				]
+				\addplot[red, thick, domain=0:20]{109000*0.8^x};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+}
 \chapter{Função seno e cosseno}
 \setcounter{ProblemNum}{0}
 \setcounter{SubProblemNum}{0}
@@ -338,5 +612,90 @@ Vamos supor um automóvel, com valor inicial de R\$109.000,00. Para fins contáb
 	\item $y = 2 + sin(x)$
 	\item $y = sin(\frac{x}{2})$
 \end{enumerate}
-
+\part{
+	$y = 2cos(x)$
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel={$x$},
+					ylabel={$y$},
+					axis lines=middle,
+					% xmin=-4,
+					% ymin=-4,
+					% xmax = 4,
+					% ymax= 4,
+					grid=both,
+					minor tick num = 1,
+					enlargelimits={abs=0.5}
+				]
+				\addplot[red, thick, domain=-2*pi:2*pi, samples=100]{cos(deg(x))};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+}
+\newpage
+\part{
+	$y = 1 + cos(x)$
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel={$x$},
+					ylabel={$y$},
+					axis lines=middle,
+					% xmin=-4,
+					% ymin=-4,
+					% xmax = 4,
+					% ymax= 4,
+					grid=both,
+					minor tick num = 1,
+					enlargelimits={abs=0.5}
+				]
+				\addplot[red, thick, domain=-2*pi:2*pi, samples=100]{1 + cos(deg(x))};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+}
+\part{
+	$y = 2 + sin(x)$
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel={$x$},
+					ylabel={$y$},
+					axis lines=middle,
+					% xmin=-4,
+					% ymin=-4,
+					% xmax = 4,
+					% ymax= 4,
+					grid=both,
+					minor tick num = 1,
+					enlargelimits={abs=0.5}
+				]
+				\addplot[red, thick, domain=-2*pi:2*pi, samples=100]{2 + sin(deg(x))};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+}
+\newpage
+\part{
+	$y = sin(\frac{x}{2})$
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel={$x$},
+					ylabel={$y$},
+					axis lines=middle,
+					% xmin=-4,
+					% ymin=-4,
+					% xmax = 4,
+					% ymax= 4,
+					grid=both,
+					minor tick num = 1,
+					enlargelimits={abs=0.5}
+				]
+				\addplot[red, thick, domain=-2*pi:2*pi, samples=100]{sin(deg(x/2))};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+}
 \end{document}

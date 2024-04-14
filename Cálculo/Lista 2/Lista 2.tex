@@ -1,0 +1,81 @@
+\documentclass{jhwhw}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage[portuguese]{babel}
+\title{Cálculo\\Lista 2 - Limites}
+\author{Gabriel Vasconcelos Ferreira}
+\begin{document}
+\maketitle
+\chapter{Noção Intuitiva / Limites laterais}
+\problem{
+Dadas as funções e seus respectivos gráficos:
+}
+\begin{enumerate}
+    \item calcule os limites laterais da $f(x)$
+    \item compare os limites laterais e verifique se eles são iguais ou diferentes
+    \item conclua se existe o limite da função e se existir, indique qual é o seu valor
+\end{enumerate}
+\begin{enumerate}
+    \item [1)]$$
+              \lim _{x \to 0} f(x), \operatorname{para} f(x)= \begin{cases}
+                  x^2 & \text {, se } x \leq 0 \\ 1+x^2 & \text {, se } x>0
+              \end{cases}$$
+    \item [2)]$$
+              \lim _{x \to 2} f(x), \operatorname{para} f(x)= \begin{cases}
+                  x^2 & \text {, se } x \geq 2 \\ x+1 & \text {, se } x<2
+              \end{cases}
+          $$
+    \item [3)]$$
+              \lim _{x \to 1} f(x), \operatorname{para} f(x)= \begin{cases}
+                  3x+1 & \text {, se } x \neq 1 \\ 0 & \text {, se } x=1
+              \end{cases}
+          $$
+    \item [4)]$$
+              \lim _{x \to 1} f(x), \operatorname{para} f(x)= \begin{cases}
+                  3x+1 & \text {, se } x \neq 1 \\ 0 & \text {, se } x=1
+              \end{cases}
+          $$
+\end{enumerate}
+\newpage
+\soln{1)$$
+        \lim _{x \to 0} f(x), \operatorname{para} f(x)= \begin{cases}
+            x^2 & \text {, se } x \leq 0 \\ 1+x^2 & \text {, se } x>0
+        \end{cases}$$}
+\begin{align*}
+    \lim _{x \rightarrow 0^-} & f(x) = x^2 & \lim_{x\to0^+} & f(x) = 1+x^2   \\
+                              & f(0) = 0^2 &                & f(0) = 1 + 0^2 \\
+                              & f(0) = 0   &                & f(0) = 1       \\
+    \lim _{x \rightarrow 0^-} & f(x) = 0   & \lim_{x\to0^+} & f(x) = 1
+\end{align*}
+\[
+    \lim _{x \rightarrow 0^-} f(x) \neq \lim _{x \rightarrow 0^+} f(x)
+\]
+\soln{2)$$
+        \lim _{x \to 2} f(x), \operatorname{para} f(x)= \begin{cases}
+            x^2 & \text {, se } x \geq 2 \\ x+1 & \text {, se } x<2
+        \end{cases}
+    $$}
+\begin{align*}
+    \lim_{x \to 2^-} & f(x) = x^2 & \lim_{x\to2^+} & f(x) = x + 1 \\
+                     & f(2) = 2^2 &                & f(2) = 2 + 1 \\
+                     & f(2) = 4   &                & f(2) = 3     \\
+    \lim_{x \to 2^-} & f(x) = 4   & \lim_{x\to2^+} & f(x) = 3
+\end{align*}
+\[
+    \lim_{x \to 2^-} f(x) \neq \lim_{x\to2^+} f(x)
+\]
+\soln{3)$$
+        \lim _{x \to 1} f(x), \operatorname{para} f(x)= \begin{cases}
+            3x+1 & \text {, se } x \neq 1 \\ 0 & \text {, se } x=1
+        \end{cases}
+    $$}
+\begin{align*}
+    \lim_{x \to 1} f(x) & = 3*1+1 \\
+                        & = 3 + 1 \\
+                        & = 4     \\
+    \lim_{x \to 1}      & = 4
+\end{align*}
+\[\]
+\end{document}

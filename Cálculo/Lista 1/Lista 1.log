@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.28)  6 APR 2024 19:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.28)  16 APR 2024 16:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/Gabriel/Documents/LaTeX/Cálculo/Lista 1.tex"
-(c:/Users/Gabriel/Documents/LaTeX/Cálculo/Lista 1.tex
+**"c:/Users/Gabriel/Documents/LaTeX/Cálculo/Lista 1/Lista 1.tex"
+(c:/Users/Gabriel/Documents/LaTeX/Cálculo/Lista 1/Lista 1.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (jhwhw.cls
@@ -825,12 +825,12 @@ Package rerunfilecheck Info: File `"Lista 1".out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  33096 strings out of 474485
- 778935 string characters out of 5742790
+ 779021 string characters out of 5742790
  1947542 words of memory out of 5000000
  54766 multiletter control sequences out of 15000+600000
  566108 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,15n,107p,772b,2039s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,15n,107p,780b,2039s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Gabriel\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1200.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti1200.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1440.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx2488.pk><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
 Output written on "Lista 1.pdf" (21 pages, 217834 bytes).
 PDF statistics:

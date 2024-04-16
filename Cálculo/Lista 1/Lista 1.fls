@@ -1,6 +1,6 @@
-PWD c:\Users\Gabriel\Documents\LaTeX\Cálculo
+PWD c:\Users\Gabriel\Documents\LaTeX\Cálculo\Lista 1
 INPUT C:\Users\Gabriel\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\Gabriel\Documents\LaTeX\Cálculo\Lista 1.tex
+INPUT c:\Users\Gabriel\Documents\LaTeX\Cálculo\Lista 1\Lista 1.tex
 OUTPUT Lista 1.log
 INPUT .\jhwhw.cls
 INPUT jhwhw.cls

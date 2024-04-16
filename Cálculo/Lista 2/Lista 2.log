@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.28)  14 APR 2024 17:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.28)  16 APR 2024 20:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -659,26 +659,30 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
 l.41 \newpage
               [1
 
-] [2] (Lista 2.aux)
+] [2] [3]
+Cap\'{\i }tulo 2.
+[4
+
+] [5] [6] [7] (Lista 2.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `"Lista 2".out' has not changed.
-(rerunfilecheck)             Checksum: 3F6C38469FA6DFFABF06DB0E4F3215EF;231.
+(rerunfilecheck)             Checksum: E8ED6FDCDEFE947154C2ABB2C0C312BD;416.
  ) 
 Here is how much of TeX's memory you used:
- 32210 strings out of 474485
- 758332 string characters out of 5742790
- 1940542 words of memory out of 5000000
- 53990 multiletter control sequences out of 15000+600000
- 564983 words of font info for 60 fonts, out of 8000000 for 9000
+ 32228 strings out of 474485
+ 758538 string characters out of 5742790
+ 1944542 words of memory out of 5000000
+ 53995 multiletter control sequences out of 15000+600000
+ 565210 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,11n,107p,780b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,13n,107p,780b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on "Lista 2.pdf" (3 pages, 117482 bytes).
+Output written on "Lista 2.pdf" (8 pages, 138243 bytes).
 PDF statistics:
- 90 PDF objects out of 1000 (max. 8388607)
- 11 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 125 PDF objects out of 1000 (max. 8388607)
+ 24 named destinations out of 1000 (max. 500000)
+ 29 words of extra memory for PDF output out of 10000 (max. 10000000)
 

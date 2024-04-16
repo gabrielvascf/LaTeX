@@ -28,8 +28,8 @@ Dadas as funções e seus respectivos gráficos:
               \end{cases}
           $$
     \item [3)]$$
-              \lim _{x \to 1} f(x), \operatorname{para} f(x)= \begin{cases}
-                  3x+1 & \text {, se } x \neq 1 \\ 0 & \text {, se } x=1
+              \lim _{x \to 0} f(x), \operatorname{para} f(x)= \begin{cases}
+                  -x^2 + 3 & \text {, se } x < 0 \\ -4x + 3 & \text {, se } x\geq0
               \end{cases}
           $$
     \item [4)]$$
@@ -67,15 +67,128 @@ Dadas as funções e seus respectivos gráficos:
     \lim_{x \to 2^-} f(x) \neq \lim_{x\to2^+} f(x)
 \]
 \soln{3)$$
+        \lim _{x \to 0} f(x), \operatorname{para} f(x)= \begin{cases}
+            -x^2 + 3 & \text {, se } x < 0 \\ -4x + 3 & \text {, se } x \geq 0
+        \end{cases}
+    $$}
+\begin{align*}
+    \lim_{x \to 1^-} f(x) & = \lim_{x \to 1^-} (-x^2+3) & \lim_{x \to 1^+} f(x) & = \lim_{x \to 1^+} (-4x+3) \\
+                          & = -1^2+3                    &                       & = -4*1+3                   \\
+                          & = -1 + 3                    &                       & = -4+3                     \\
+    \lim_{x \to 1^-} f(x) & = 2                         & \lim_{x \to 1^+} f(x) & = -1
+\end{align*}
+\[
+    \lim_{x \to 1^-} f(x) \neq \lim_{x \to 1^+} f(x)
+\]
+\soln{4)$$
         \lim _{x \to 1} f(x), \operatorname{para} f(x)= \begin{cases}
             3x+1 & \text {, se } x \neq 1 \\ 0 & \text {, se } x=1
         \end{cases}
     $$}
 \begin{align*}
-    \lim_{x \to 1} f(x) & = 3*1+1 \\
-                        & = 3 + 1 \\
-                        & = 4     \\
-    \lim_{x \to 1}      & = 4
+    \lim_{x \to 1} f(x) & = \lim_{x \to 1} (3x+1) \\
+                        & = 3*1 + 1               \\
+    \lim_{x \to 1} f(x) & = 4
 \end{align*}
-\[\]
+\chapter{Limites com indeterminação}
+\problem{Calcule os limites, indicando o passo a passo.}
+\begin{enumerate}
+    \item [1)] \[
+              \lim_{x \to 0} \frac{\sqrt{x+3}-\sqrt{3}}{x}
+          \]
+    \item [2)] \[
+              \lim_{x \to 10} \frac{x^2-100}{x-10}
+          \]
+    \item [3)] \[
+              \lim_{x \to 7} \frac{x^2-49}{x-7}
+          \]
+    \item [4)] \[
+              \lim_{x \to 2} \frac{3x^2-5x-2}{x^2+3x-10}
+          \]
+    \item [5)] \[
+              \lim_{x \to -1} \frac{x^2+3x+2}{x^2-1}
+          \]
+\end{enumerate}
+\newpage
+\soln{1)}
+$$\lim_{x \to 0} \frac{\sqrt{x+3}-\sqrt{3}}{x}$$
+Multiplicando divisor e numerador pelo conjugado do numerador:
+\begin{multline*}
+    \frac{\sqrt{x+3}-\sqrt{3}}{x} =\\ \frac{(\sqrt{x+3}-\sqrt{3})(\sqrt{x+3}+\sqrt{3})}{x(\sqrt{x+3}+\sqrt{3})} = 
+    \frac{x}{x(\sqrt{x+3}+\sqrt{3})} = 
+    \frac{1}{\sqrt{x+3}+\sqrt{3}} \\
+    \boxed{\lim_{x \to 0} \frac{1}{\sqrt{x+3}+\sqrt{3}} = 
+    \frac{1}{\sqrt{0+3}+\sqrt{3}} 
+    =\frac{1}{2\sqrt{3}}}
+\end{multline*}
+Multiplicando numerador e divisor por $\sqrt{3}$:
+\begin{multline*}
+    \lim_{x \to 0} \frac{1}{\sqrt{x+3}+\sqrt{3}} =\\ 
+    \frac{1}{2\sqrt{3}} = 
+    \frac{1(\sqrt{3})}{2\sqrt{3}(\sqrt{3})} = 
+    \frac{\sqrt{3}}{2*3} \\ 
+    \boxed{\lim_{x \to 0} \frac{1}{\sqrt{x+3}+\sqrt{3}} = \frac{\sqrt{3}}{6}}
+\end{multline*}
+\soln{2)}
+Sabendo que $a^2 - b^2 = (a+b)(a-b)$:
+\begin{multline*}
+    \lim_{x \to 10} \frac{x^2-100}{x-10} \\
+    \frac{x^2-10^2}{x-10} = \frac{(x+10)(x-10)}{x-10} = x+10 \\
+    \boxed{\lim_{x\to10} x+10 = 20}
+\end{multline*}
+\soln{3)}
+Sabendo que $a^2 - b^2 = (a+b)(a-b)$:
+\begin{multline*}
+    \lim_{x \to 7} \frac{x^2-49}{x-7}\\
+    \frac{x^2 - 49}{x-7} = \frac{x^2 - 7^2}{x-7} = \frac{(x-7)(x+7)}{x-7} = x+7\\
+    \boxed{\lim_{x \to 7} x+7 = 14}
+\end{multline*}
+\newpage
+\soln{4)}
+\begin{multline*}
+    \lim_{x \to 0} \frac{3x^2 - 5x - 2}{x^2 + 3x - 10} \\
+    \text{Sabendo que $ax^2 + bx + c = a(x-x1)(x-x2)$} \\
+    x1, x2 \equiv \text{Raizes da função} \\
+\end{multline*}
+Utilizando a fórmula de báskara para achar as raízes da função:\\
+Numerador ($3x^2 -5x -2$):
+\begin{multline*}
+    \{x1, x2\} = \frac{-(-5) \pm \sqrt{(-5)^2 - 4 * 3 * 2}}{2*3} \\
+    = \frac{5 \pm \sqrt{25 + 24}}{6} = \frac{5 \pm \sqrt{49}}{6} = \frac{5 \pm 7}{6} \\
+    \boxed{\{x1, x2\} = \biggl\{\frac{12}{6}, \frac{-2}{6}\biggr\} = \biggl\{2, -\frac{1}{3}\biggr\}}
+\end{multline*}
+Divisor: ($x^2 + 3x - 10$)
+\begin{multline*}
+    \{x1, x2\} = \frac{-3 \sqrt{3^2 - 4 * 1 * -10}}{2*1} \\= \frac{-3 \sqrt{3^2 - 4 * 1 * -10}}{2*1} = \frac{-3 \pm \sqrt{9 + 40}}{2} = \frac{-3 \pm 7}{2} \\
+    \boxed{\{x1, x2\} = \biggl\{\frac{4}{2}, \frac{-10}{2}\biggr\} = \biggl\{2, -5\biggr\}}
+\end{multline*}
+Simplificando o divisor e numerador:
+\begin{equation*}
+    3x^2 - 5x - 2 = 3(x-2)(x+\frac{1}{3})
+\end{equation*}
+\begin{equation*}
+    x^2 + 3x - 10 = 1(x-2)(x+5)
+\end{equation*}
+\begin{multline*}
+    \lim_{x \to 2} \frac{3x^2 - 5x - 2}{x^2 + 3x - 10} \\ \frac{3x^2 - 5x - 2}{x^2 + 3x - 10} = \frac{3(x-2)(x+\frac{1}{3})}{(x-2)(x+5)} = \frac{3(x+\frac{1}{3})}{x+5} = \frac{3x+1}{x+5} = \frac{3x+1}{x+5} = \frac{3*2+1}{2+5} = \frac{7}{7} \\
+    \boxed{\lim_{x \to 2} \frac{3x^2 - 5x - 2}{x^2 + 3x - 10} = 1}
+\end{multline*}
+\newpage
+\soln{5)}
+\begin{multline*}
+    \lim_{x \to -1} \frac{x^2 + 3x + 2}{x^2 -1} \\
+    \text{Sabendo que $ax^2 + bx + c = a(x-x1)(x-x2)$} \\
+    x1, x2 \equiv \text{Raizes da função} \\
+    \frac{-3 \pm \sqrt{-3^2-4*1*2}}{2*1} = \frac{-3 \pm \sqrt{9-8}}{2} = \frac{-3\pm1}{2}\\
+    \{x1, x2\} = \biggl\{\frac{-2}{2}, \frac{-4}{2}\biggr\} = \biggl\{-1, -2\biggr\} \\
+    x^2 + 3x + 2 = (x+1)(x+2)
+\end{multline*}
+Sabendo que $a^2 - b^2 = (a+b)(a-b)$
+\[x^2 - 1 = x^2 - 1^2 = (x-1)(x+1)\]
+Então:
+\begin{multline*}
+    \lim_{x \to -1} \frac{x^2 + 3x + 2}{x^2 - 1} \\ \frac{x^2 + 3x + 2}{x^2 - 1} = \frac{(x+1)(x+2)}{(x-1)(x+1)} = \frac{x+2}{x-1}
+    = \frac{x+2}{x-1} = \frac{-1+2}{-1-1} = \frac{1}{-2} \\
+    \boxed{\lim_{x \to -1} \frac{x^2 + 3x + 2}{x^2 - 1} = -\frac{1}{2}}
+\end{multline*}
 \end{document}

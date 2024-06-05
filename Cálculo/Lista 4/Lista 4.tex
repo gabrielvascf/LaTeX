@@ -1,12 +1,15 @@
 \documentclass{jhwhw}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
 \usepackage{cancel}
 \usepackage{mathtools}
 \usepackage{tikz}
 \usepackage{amsmath}
 \usepackage{multicol}
 \usepackage[portuguese]{babel}
+
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
 
 \newcommand{\dx}{\mathrm{dx}}
 \newcommand{\du}{\mathrm{du}}
@@ -79,18 +82,64 @@
 $$
 \[u = -3x^2 -5x - 2\]
 \[\frac{\du}{\dx} = -6x - 5 \implies \du = (-6x-5) \dx\]
-\[\int \frac{1}{u} \du \implies \ln u + C \implies \boxed{\ln (-3x^2 -5x - 2) + C}\]
+\[\int \frac{1}{u} \du \implies \ln u + C \implies \boxed{\ln |-3x^2 -5x - 2| + C}\]
 }
 
 \soln{2) \[
     \int \frac{3x -1}{3x^2 - 2x} \dx \implies \int \frac{1}{\underbrace{3x^2 - 2x}_u} \underbrace{(3x-1)\dx}_\du
 \]
 \[
-    u = 3x^2 - 2x
+    u = 3x^2-2x
+\]
+\begin{multline*}
+    \frac{\du}{\dx} = 6x - 2 \implies \\ 
+    \du = (6x-2)\dx =\\ 
+    \du = 2(3x-1)\dx\\
+    \boxed{\frac{\du}{2} = (3x-1)\dx}
+\end{multline*}
+\begin{multline*}
+    \int \frac{1}{u} \frac{\du}{2} =\\
+    \int \frac{1}{u} \frac{\du}{2} = \int \frac{1}{u} \frac{1}{2}\du \implies \frac{1}{2} \int \frac{1}{u} \du \\
+    \frac{1}{2} \ln |u| + C \implies \\
+    \boxed{\int \frac{3x -1}{3x^2 - 2x} \dx = \frac{1}{2} \ln |3x^2-2x| + C}
+\end{multline*}
+}
+
+\soln{3)
+\[\int {\underbrace{(x^2 - 5)}_u}^3\underbrace{x \dx}_\du\]
+\[
+    u = x^2-5 \implies u' = 2x
 \]
 \[
-    \frac{\du}{\dx} = 6x - 2 \implies \du = (6x-2)\dx
+    \frac{\du}{\dx} = 2x \implies \du = 2x\dx \implies \frac{\du}{2} = x\dx
 \]
+\begin{multline*}
+    \int (x^2-5)^3 x \dx \implies \\ 
+    \int (u)^3 \frac{\du}{2} \implies 
+    \int (u)^3 \du \implies
+    \frac{1}{2} \int u^3 \du \implies
+    \frac{1}{2} \frac{u^4}{4} + C = \frac{u^4}{8} + C \implies \\
+    \boxed{\int (x^2-5)^3 x \dx = \frac{(x^2-5)^4}{8} + C}
+\end{multline*}
+}
+
+\soln{4) 
+\[
+    \int \frac{\dx}{{(5-3x)}^2} = \int \frac{1}{{\underbrace{(5-3x)}_u}^2} \underbrace{\dx}_\du
+\]
+\[
+    u = -3x+5 \implies u' = -3
+\]
+\[
+    \frac{\du}{\dx} = -3 \implies \du = -3\dx \implies -\frac{\du}{3} = \dx
+\]
+\begin{multline*}
+        \int \frac{1}{u^2} \left(-\frac{du}{3}\right) \implies \\
+        \int u^{-2} \left(-\frac{1}{3}\du\right) = 
+        -\frac{1}{3} \int u^{-2} \du \implies 
+        -\frac{1}{3} \frac{u^{-1}}{-1} + C = \frac{1}{3} \frac{1}{-3x+5} + C = \frac{1}{3(-3x+5)} + C\\
+        \boxed{\int \frac{\dx}{{(5-3x)}^2}  = \frac{1}{-9x+15} + C}
+\end{multline*}
 }
 
 \reset{}
@@ -100,4 +149,45 @@ $$
 \anyproblem{3) Calcula a área sob o (abaixo do) gráfico da função $y = x$, de $x = 0$ a $x = 3$.}
 \anyproblem{4) Determine o volume do sólido de revolução gerado pela rotação \emph{em torno do eixo} $x$, da região limitada por $y = 3x+1$, $x = 0$, $x = 3$ e $y = 0$}
 \anyproblem{5) Determine o volume do sólido de revolução gerado pela rotação \emph{em torno do eixo} $x$, da região limitada por $y = x^2 + 1$, $x = 1$, $x = 3$ e $y = 0$.}
+
+\soln{1) Calcule a área entre os gráficos de $y = x + 2$ e $y = x^2$}
+\part{Gráfico:}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+				xlabel={$x$},
+				ylabel={$y$},
+				axis lines=middle,
+				grid=both,
+				minor tick num = 1,
+				enlargelimits={abs=0.25},
+                domain = -3:3
+			]
+			\addplot[red,thick,name path=A]{x*x};
+			\addplot[blue,thick,name path=B]{x+2};
+            \addplot[pattern=north west lines, pattern color=gray!50] fill between[of=A and B, soft clip={domain=-1:2}];
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+\part{Área}
+\[f(x) = x^2 \implies F(x) = \int f(x) \dx = \int x^2 \dx = \boxed{\frac{x^3}{3} + C}\]
+\[g(x) = x+2 \implies G(X) = \int g(x) \dx = \int x+2 \dx = \boxed{\frac{x^2}{2} + 2x + C}\]
+Pontos de interseção:
+\begin{multline*}
+    f(x) = g(x) \implies x^2 = x+2 \implies 
+    \underbrace{x^2}_a \underbrace{-x}_b \underbrace{-2}_c = 0 \\
+    \frac{-b \pm \sqrt{b^2-4ac}}{2a} \implies \frac{1 \pm \sqrt{-1^2 - 4(1)(-2)}}{2} = \\
+    \frac{1 \pm \sqrt{1 + 8}}{2} = 
+    \frac{1 \pm \sqrt{9}}{2} = \\
+    \frac{1 \pm 3}{2} = 
+    -\frac{2}{2}, \frac{4}{2}\\
+    \boxed{\{a, b\} = -1, 2} 
+\end{multline*}
+\begin{align*} 
+    A & = \int_{a}^{b} [f(x) - g(x)] \dx \\
+    A & = [F(x) - G(x)]_a^b \\
+    A & = \left[\frac{x^3}{3} - \frac{x^2}{2}\right]_{-1}^2 \\
+    \shortintertext{Como $G(X) \geq F(X)$ em $[-1, 2]$}
+    A & = [G(2) - F(2)] - [G(-1) - F(-1)] 
+\end{align*}
 \end{document}

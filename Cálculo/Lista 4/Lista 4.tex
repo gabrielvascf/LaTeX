@@ -31,26 +31,27 @@
         \item $\displaystyle \int \left(\frac{1}{3}x^2 - \frac{1}{2}x - 3\right) \dx$
     \end{enumerate}
 \end{multicols}
+\newpage
 \soln{1)
-\begin{multline*}
-    \int (3x^2 - 2x + 4 \dx) \implies \cancelto{\frac{3x^3}{3}}{\int 3x^2} - \cancelto{\frac{2x^2}{2x}}{\int 2} + \cancelto{4x}{\int 4} = 
-    \frac{\cancel{3}x^3}{\cancel{3}} - \frac{\cancel{2}x^2}{\cancel{2}} + 4x = 
-    \\ \boxed{\int (3x^2 - 2x + 4 \dx) = x^3 - x^2 + 4x + C}
-\end{multline*}
+    \begin{multline*}
+        \int (3x^2 - 2x + 4 \dx) \implies \cancelto{\frac{3x^3}{3}}{\int 3x^2} - \cancelto{\frac{2x^2}{2x}}{\int 2} + \cancelto{4x}{\int 4} =
+        \frac{\cancel{3}x^3}{\cancel{3}} - \frac{\cancel{2}x^2}{\cancel{2}} + 4x =
+        \\ \boxed{\int (3x^2 - 2x + 4 \dx) = x^3 - x^2 + 4x + C}
+    \end{multline*}
 }
 
 \soln{2)
-\begin{multline*}
-    \int \left( \frac{x^3}{2} -1 \right) \dx  \implies 
-    \frac{1}{2} \cancelto{\frac{x^4}{4}}{\int x^3 \dx} - \cancelto{x}{\int 1 \dx} = 
-    \frac{1}{2}\frac{x^4}{4} - x + C\\ \boxed{\int \left( \frac{x^3}{2} -1 \right) = \frac{x^4}{8} - x + C}
-\end{multline*}
+    \begin{multline*}
+        \int \left( \frac{x^3}{2} -1 \right) \dx  \implies
+        \frac{1}{2} \cancelto{\frac{x^4}{4}}{\int x^3 \dx} - \cancelto{x}{\int 1 \dx} =
+        \frac{1}{2}\frac{x^4}{4} - x + C\\ \boxed{\int \left( \frac{x^3}{2} -1 \right) = \frac{x^4}{8} - x + C}
+    \end{multline*}
 }
 
 \soln{3)
     \begin{multline*}
-        \int \frac{1-x}{2} \dx \implies 
-        \int \frac{1}{2} \dx - \cancelto{\frac{1}{2}x}{\int \frac{x}{2}} \dx = 
+        \int \frac{1-x}{2} \dx \implies
+        \int \frac{1}{2} \dx - \cancelto{\frac{1}{2}x}{\int \frac{x}{2}} \dx =
         \frac{x}{2} - \frac{1}{2} \cancelto{\frac{x^2}{2}}{\int x} \dx = \frac{x}{2} - \frac{1}{2} \frac{x^2}{2} + C \\
         \boxed{\int \frac{1-x}{2} \dx = \frac{x}{2} - \frac{x^2}{4} + C}
     \end{multline*}
@@ -59,7 +60,7 @@
 \soln{4)
     \begin{multline*}
         \int \left( \frac{1}{3} x^2 - \frac{1}{2}x - 3 \right) \dx \implies
-        \frac{1}{3} \int x^2 \dx - \frac{1}{2} \int x \dx - \int 3 \dx \\
+        \frac{1}{3} \int x^2 \dx - \frac{1}{2} \int x \dx - \int 3 \dx
         = \frac{1}{3} \frac{x^3}{3} - \frac{1}{2} \frac{x^2}{2} - 3x + C \\
         \boxed{\int \left( \frac{1}{3} x^2 - \frac{1}{2}x - 3 \right) \dx = \frac{x^3}{9} - \frac{x^2}{4} - 3x + C}
     \end{multline*}
@@ -76,70 +77,70 @@
         \item $\displaystyle \int \frac{\dx}{{(5-3x)}^2}$
     \end{enumerate}
 \end{multicols}
-
+\newpage
 \soln{1)$$
-    \int \frac{-6x - 5}{-3x^2 - 5x - 2} \dx \implies \int \underbrace{\frac{1}{-3x^2 -5x - 2}}_u \underbrace{(-6x - 5) \dx}_{\du}
-$$
-\[u = -3x^2 -5x - 2\]
-\[\frac{\du}{\dx} = -6x - 5 \implies \du = (-6x-5) \dx\]
-\[\int \frac{1}{u} \du \implies \ln u + C \implies \boxed{\ln |-3x^2 -5x - 2| + C}\]
+        \int \frac{-6x - 5}{-3x^2 - 5x - 2} \dx \implies \int \underbrace{\frac{1}{-3x^2 -5x - 2}}_u \underbrace{(-6x - 5) \dx}_{\du}
+    $$
+    \[u = -3x^2 -5x - 2\]
+    \[\frac{\du}{\dx} = -6x - 5 \implies \du = (-6x-5) \dx\]
+    \[\int \frac{1}{u} \du \implies \ln u + C \implies \boxed{\ln |-3x^2 -5x - 2| + C}\]
 }
 
 \soln{2) \[
-    \int \frac{3x -1}{3x^2 - 2x} \dx \implies \int \frac{1}{\underbrace{3x^2 - 2x}_u} \underbrace{(3x-1)\dx}_\du
-\]
-\[
-    u = 3x^2-2x
-\]
-\begin{multline*}
-    \frac{\du}{\dx} = 6x - 2 \implies \\ 
-    \du = (6x-2)\dx =\\ 
-    \du = 2(3x-1)\dx\\
-    \boxed{\frac{\du}{2} = (3x-1)\dx}
-\end{multline*}
-\begin{multline*}
-    \int \frac{1}{u} \frac{\du}{2} =\\
-    \int \frac{1}{u} \frac{\du}{2} = \int \frac{1}{u} \frac{1}{2}\du \implies \frac{1}{2} \int \frac{1}{u} \du \\
-    \frac{1}{2} \ln |u| + C \implies \\
-    \boxed{\int \frac{3x -1}{3x^2 - 2x} \dx = \frac{1}{2} \ln |3x^2-2x| + C}
-\end{multline*}
+        \int \frac{3x -1}{3x^2 - 2x} \dx \implies \int \frac{1}{\underbrace{3x^2 - 2x}_u} \underbrace{(3x-1)\dx}_\du
+    \]
+    \[
+        u = 3x^2-2x
+    \]
+    \begin{multline*}
+        \frac{\du}{\dx} = 6x - 2 \implies \\
+        \du = (6x-2)\dx =\\
+        \du = 2(3x-1)\dx\\
+        \boxed{\frac{\du}{2} = (3x-1)\dx}
+    \end{multline*}
+    \begin{multline*}
+        \int \frac{1}{u} \frac{\du}{2} =\\
+        \int \frac{1}{u} \frac{\du}{2} = \int \frac{1}{u} \frac{1}{2}\du \implies \frac{1}{2} \int \frac{1}{u} \du \\
+        \frac{1}{2} \ln |u| + C \implies \\
+        \boxed{\int \frac{3x -1}{3x^2 - 2x} \dx = \frac{1}{2} \ln |3x^2-2x| + C}
+    \end{multline*}
 }
 
 \soln{3)
-\[\int {\underbrace{(x^2 - 5)}_u}^3\underbrace{x \dx}_\du\]
-\[
-    u = x^2-5 \implies u' = 2x
-\]
-\[
-    \frac{\du}{\dx} = 2x \implies \du = 2x\dx \implies \frac{\du}{2} = x\dx
-\]
-\begin{multline*}
-    \int (x^2-5)^3 x \dx \implies \\ 
-    \int (u)^3 \frac{\du}{2} \implies 
-    \int (u)^3 \du \implies
-    \frac{1}{2} \int u^3 \du \implies
-    \frac{1}{2} \frac{u^4}{4} + C = \frac{u^4}{8} + C \implies \\
-    \boxed{\int (x^2-5)^3 x \dx = \frac{(x^2-5)^4}{8} + C}
-\end{multline*}
+    \[\int {\underbrace{(x^2 - 5)}_u}^3\underbrace{x \dx}_\du\]
+    \[
+        u = x^2-5 \implies u' = 2x
+    \]
+    \[
+        \frac{\du}{\dx} = 2x \implies \du = 2x\dx \implies \frac{\du}{2} = x\dx
+    \]
+    \begin{multline*}
+        \int (x^2-5)^3 x \dx \implies \\
+        \int (u)^3 \frac{\du}{2} \implies
+        \int (u)^3 \du \implies
+        \frac{1}{2} \int u^3 \du \implies
+        \frac{1}{2} \frac{u^4}{4} + C = \frac{u^4}{8} + C \implies \\
+        \boxed{\int (x^2-5)^3 x \dx = \frac{(x^2-5)^4}{8} + C}
+    \end{multline*}
 }
 
-\soln{4) 
-\[
-    \int \frac{\dx}{{(5-3x)}^2} = \int \frac{1}{{\underbrace{(5-3x)}_u}^2} \underbrace{\dx}_\du
-\]
-\[
-    u = -3x+5 \implies u' = -3
-\]
-\[
-    \frac{\du}{\dx} = -3 \implies \du = -3\dx \implies -\frac{\du}{3} = \dx
-\]
-\begin{multline*}
+\soln{4)
+    \[
+        \int \frac{\dx}{{(5-3x)}^2} = \int \frac{1}{{\underbrace{(5-3x)}_u}^2} \underbrace{\dx}_\du
+    \]
+    \[
+        u = -3x+5 \implies u' = -3
+    \]
+    \[
+        \frac{\du}{\dx} = -3 \implies \du = -3\dx \implies -\frac{\du}{3} = \dx
+    \]
+    \begin{multline*}
         \int \frac{1}{u^2} \left(-\frac{du}{3}\right) \implies \\
-        \int u^{-2} \left(-\frac{1}{3}\du\right) = 
-        -\frac{1}{3} \int u^{-2} \du \implies 
+        \int u^{-2} \left(-\frac{1}{3}\du\right) =
+        -\frac{1}{3} \int u^{-2} \du \implies
         -\frac{1}{3} \frac{u^{-1}}{-1} + C = \frac{1}{3} \frac{1}{-3x+5} + C = \frac{1}{3(-3x+5)} + C\\
         \boxed{\int \frac{\dx}{{(5-3x)}^2}  = \frac{1}{-9x+15} + C}
-\end{multline*}
+    \end{multline*}
 }
 
 \reset{}
@@ -150,44 +151,215 @@ $$
 \anyproblem{4) Determine o volume do sólido de revolução gerado pela rotação \emph{em torno do eixo} $x$, da região limitada por $y = 3x+1$, $x = 0$, $x = 3$ e $y = 0$}
 \anyproblem{5) Determine o volume do sólido de revolução gerado pela rotação \emph{em torno do eixo} $x$, da região limitada por $y = x^2 + 1$, $x = 1$, $x = 3$ e $y = 0$.}
 
+\newpage
 \soln{1) Calcule a área entre os gráficos de $y = x + 2$ e $y = x^2$}
 \part{Gráfico:}
 \begin{center}
-	\begin{tikzpicture}
-		\begin{axis}[
-				xlabel={$x$},
-				ylabel={$y$},
-				axis lines=middle,
-				grid=both,
-				minor tick num = 1,
-				enlargelimits={abs=0.25},
+    \begin{tikzpicture}
+        \begin{axis}[
+                xlabel={$x$},
+                ylabel={$y$},
+                axis lines=middle,
+                grid=both,
+                minor tick num = 1,
+                enlargelimits={abs=0.25},
                 domain = -3:3
-			]
-			\addplot[red,thick,name path=A]{x*x};
-			\addplot[blue,thick,name path=B]{x+2};
+            ]
+            \addplot[red,thick,name path=A]{x*x};
+            \addplot[blue,thick,name path=B]{x+2};
             \addplot[pattern=north west lines, pattern color=gray!50] fill between[of=A and B, soft clip={domain=-1:2}];
-		\end{axis}
-	\end{tikzpicture}
+        \end{axis}
+    \end{tikzpicture}
 \end{center}
 \part{Área}
 \[f(x) = x^2 \implies F(x) = \int f(x) \dx = \int x^2 \dx = \boxed{\frac{x^3}{3} + C}\]
 \[g(x) = x+2 \implies G(X) = \int g(x) \dx = \int x+2 \dx = \boxed{\frac{x^2}{2} + 2x + C}\]
 Pontos de interseção:
 \begin{multline*}
-    f(x) = g(x) \implies x^2 = x+2 \implies 
+    f(x) = g(x) \implies x^2 = x+2 \implies
     \underbrace{x^2}_a \underbrace{-x}_b \underbrace{-2}_c = 0 \\
     \frac{-b \pm \sqrt{b^2-4ac}}{2a} \implies \frac{1 \pm \sqrt{-1^2 - 4(1)(-2)}}{2} = \\
-    \frac{1 \pm \sqrt{1 + 8}}{2} = 
+    \frac{1 \pm \sqrt{1 + 8}}{2} =
     \frac{1 \pm \sqrt{9}}{2} = \\
-    \frac{1 \pm 3}{2} = 
+    \frac{1 \pm 3}{2} =
     -\frac{2}{2}, \frac{4}{2}\\
-    \boxed{\{a, b\} = -1, 2} 
+    \boxed{\{a, b\} = -1, 2}
 \end{multline*}
-\begin{align*} 
-    A & = \int_{a}^{b} [f(x) - g(x)] \dx \\
-    A & = [F(x) - G(x)]_a^b \\
-    A & = \left[\frac{x^3}{3} - \frac{x^2}{2}\right]_{-1}^2 \\
-    \shortintertext{Como $G(X) \geq F(X)$ em $[-1, 2]$}
-    A & = [G(2) - F(2)] - [G(-1) - F(-1)] 
+\begin{align*}
+    A & = \int_{a}^{b} [f(x) - g(x)] \dx                                                                                                     \\
+    A & = [F(x) - G(x)]_a^b                                                                                                                  \\
+    A & = \left[\frac{x^3}{3} - \left(\frac{x^2}{2} + 2x\right)\right]_{-1}^2                                                                \\
+    \shortintertext{Como $G(X) \geq F(X)$ em $[-1, 2]$,}
+    A & = [G(2) - F(2)] - [G(-1) - F(-1)]                                                                                                    \\
+      & = \left[\left(\frac{2^2}{2} + 2(2)\right) - \frac{2^3}{3}\right] - \left[\left(\frac{-1^2}{2} + 2(-1)\right) - \frac{-1^3}{3}\right] \\
+      & = \left[\left(\frac{4}{2} + 4\right) - \frac{8}{3}\right] - \left[\left(\frac{-1}{2} + -2\right) - \frac{-1}{3}\right]               \\
+      & = \left[2 + 4 - \frac{8}{3}\right] - \left[\left(\frac{-1}{2} -2\right) + \frac{1}{3}\right]                                         \\
+      & = 2 + 4 - \frac{8}{3} + \frac{1}{2} - 2 - \frac{1}{3}                                                                                \\
+      & = \frac{12 + 24 - 16 + 3 - 12 - 2}{6}                                                                                                \\
+    A & = \boxed{\frac{9}{6} u^2}
+\end{align*}
+\reset
+\newpage
+\soln{2) Calcule a área limitada pela curva $y = -x^2 + 5x$ e pelo \emph{eixo} $x$.}
+\part{Gráfico}
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                xlabel={$x$},
+                ylabel={$y$},
+                axis lines=middle,
+                grid=both,
+                minor tick num = 1,
+                enlargelimits={abs=0.25},
+                domain = 0:5
+            ]
+            \addplot[red,thick,name path=A]{-x*x + 5*x};
+            \addplot[blue,thick,name path=B]{0};
+            \addplot[pattern=north west lines, pattern color=gray!50] fill between[of=A and B, soft clip={domain=0:5}];
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\part{Área}
+\[f(x) = -x^2 + 5x \implies F(x) = \int f(x) \dx = \int -x^2 + 5x \dx = \frac{-x^3}{3} + \frac{5x^2}{2}\]
+\begin{align*}
+    A & = \int_{0}^{5} f(x) \dx                                                          \\
+      & = \frac{-x^3}{3} + \frac{5x^2}{2} \bigg|_0^5                                     \\
+      & = \frac{-5^3}{3} + \frac{5(5)^2}{2} \cancel{- \frac{-0^3}{3} + \frac{5(0)^2}{2}} \\
+      & = -\frac{125}{3} + \frac{125}{2}                                                 \\
+      & = \frac{-125(2) + 125(3)}{6}                                                     \\
+      & = \frac{-250 + 375}{6}                                                           \\
+    A & = \boxed{\frac{125}{6} u^2}
+\end{align*}
+\reset
+\newpage
+\soln{3) Calcula a área sob o (abaixo do) gráfico da função $y = x$, de $x = 0$ a $x = 3$.}
+\part{Gráfico}
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                xlabel={$x$},
+                ylabel={$y$},
+                axis lines=middle,
+                grid=both,
+                minor tick num = 0,
+                enlargelimits={abs=0.25},
+                domain = 0:5
+            ]
+            \addplot[red,thick,name path=A]{x};
+            \addplot[blue,thick,name path=B]{0};
+            \addplot[pattern=north west lines, pattern color=gray!50] fill between[of=A and B, soft clip={domain=0:3}];
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\part{Área}
+\[f(x) = x \implies F(x) = \int f(x) \dx = \int x \dx = \frac{x^2}{2}\]
+\begin{align*}
+    A & = \int_{0}^{3} f(x) \dx                 \\
+      & = \frac{x^2}{2} \bigg|_0^3              \\
+      & = \frac{3^2}{2} \cancel{-\frac{0^2}{2}} \\
+      & = \frac{9}{2}                           \\
+    A & = \boxed{\frac{9}{2} u^2}
+\end{align*}
+\reset
+\newpage
+\soln{4) Determine o volume do sólido de revolução gerado pela rotação \emph{em torno do eixo} $x$, da região limitada por $y = 3x+1$, $x = 0$, $x = 3$ e $y = 0$}
+\part{Gráficos}
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                scale=1,
+                xlabel={$x$},
+                ylabel={$y$},
+                axis lines=middle,
+                grid=both,
+                minor tick num = 0,
+                enlargelimits={abs=0.25},
+                domain = 0:5
+            ]
+            \addplot[red,thick,name path=A]{3*x+1};
+            \addplot[blue,thick,name path=B]{0};
+            \addplot[pattern=north west lines, pattern color=gray!50] fill between[of=A and B, soft clip={domain=0:3}];
+        \end{axis}
+    \end{tikzpicture}\\
+    \begin{tikzpicture}
+        \begin{axis}[
+                scale=1.5,
+                xlabel={$x$},
+                ylabel={$y$},
+                zlabel={$z$},
+                axis lines=center,
+                domain=0:5
+                xmin=0,
+                xmax=5,
+                %
+                % moved all common keys of the plots here
+                every axis plot/.append style={ opacity=0.3, surf, shader=flat, samples=40,
+                        domain=0:3, y domain=0:2*pi, z buffer=sort, }, ] \addplot3 [ draw=blue!80,
+                fill=blue!50, ] (x,{(3*x + 1)*cos(deg(y))}, {(3*x+1) * sin(deg(y))});
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+\part{Área}
+\[f(x) = 2x+1 \implies F(x) = \int f(x) \dx = \int 2x+1 \dx = \frac{3x^2}{2} + x\]
+\begin{align*}
+    V & = \pi \int_0^3 f(x)^2 \dx                                    \\
+      & = \pi \int_0^3 (2x+1)^2 \dx                                  \\
+      & = \pi \int_0^3 4x^2 + 4x + 1 \dx                             \\
+      & = \pi \left[\frac{4x^3}{3} + \frac{4x^2}{2} + x\right]_0^3   \\
+      & = \pi \left(\frac{4(3)^3}{3} + \frac{4(3)^2}{2} + (3)\right) \\
+      & = \pi \left(\frac{108}{3} + \frac{36}{2} + 3\right)          \\
+    V & = \boxed{57\pi u^3}
+\end{align*}
+\reset
+\soln{5) Determine o volume do sólido de revolução gerado pela rotação \emph{em torno do eixo} $x$, da região limitada por $y = x^2 + 1$, $x = 1$, $x = 3$ e $y = 0$}
+\part{Gráficos}
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                scale=1,
+                xlabel={$x$},
+                ylabel={$y$},
+                axis lines=middle,
+                grid=both,
+                minor tick num = 0,
+                enlargelimits={abs=0.25},
+                domain = 0:5
+            ]
+            \addplot[red,thick,name path=A,domain=1:3]{x*x+1};
+            \addplot[blue,thick,name path=B,domain=1:3]{0};
+            \addplot[pattern=north west lines, pattern color=gray!50] fill between[of=A and B, soft clip={domain=0:3}];
+        \end{axis}
+    \end{tikzpicture}\\
+    \begin{tikzpicture}
+        \begin{axis}[
+                scale=1.5,
+                xlabel={$x$},
+                ylabel={$y$},
+                zlabel={$z$},
+                axis lines=center,
+                domain=0:5
+                xmin=0,
+                xmax=5,
+                %
+                % moved all common keys of the plots here
+                every axis plot/.append style={ opacity=0.3, surf, shader=flat, samples=40,
+                        domain=1:3, y domain=0:2*pi, z buffer=sort, }, ] \addplot3 [ draw=blue!80,
+                fill=blue!50, ] (x,{(x*x+1)*cos(deg(y))}, {(x*x+1) * sin(deg(y))});
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+\part{Área}
+\[f(x) = x^2+1 \implies F(x) = \int f(x) \dx = \int x^2+1 \dx = \frac{x^3}{3} + x\]
+\begin{align*}
+    V & = \pi \int_1^3 f(x)^2 \dx                                                                                                        \\
+      & = \pi \int_1^3 (x^2+1)^2 \dx                                                                                                     \\
+      & = \pi \int_1^3 x^4 + 2x^2 + 1 \dx                                                                                                \\
+      & = \pi \left[\frac{x^5}{5} + \frac{2x^3}{3} + x\right]_1^3                                                                        \\
+      & = \pi \left(\left[\frac{(3)^5}{5} + \frac{2(3)^3}{3} + (3)\right] - \left[\frac{(1)^5}{5} + \frac{2(1)^3}{3} + (1)\right]\right) \\
+      & = \pi \left(\left[\frac{253}{5} + \frac{54}{3} + 3\right] - \left[\frac{1}{5} + \frac{8}{3} + 1\right]\right)                    \\
+      & = \pi \left(\frac{759 + 270 + 45}{15} - \frac{3 + 40 + 15}{15}\right)                                                            \\
+    V & = \boxed{\frac{1016}{15} \pi u^3}
 \end{align*}
 \end{document}

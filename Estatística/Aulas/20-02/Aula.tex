@@ -1,0 +1,102 @@
+\documentclass{jhwhw}
+\usepackage{pgfplots}
+\usepackage{cancel}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage[portuguese]{babel}
+
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+
+\newcommand{\dx}{\mathrm{dx}}
+\newcommand{\du}{\mathrm{du}}
+\newcommand{\fr}{\mathrm{Fr}}
+\begin{document}
+\author{Gabriel Vasconcelos Ferreira}
+\title{%
+    Aula 2 \\ 
+    \large Exemplo --- Distribuição de Frequências \\para Variável Contínua (Slide 6)\\
+}
+\maketitle    
+\chapter{Anotações:}\label{chap:Anotações:} % (fold)
+\begin{enumerate}
+    \item Dados brutos $\rightarrow$ sem ordem
+    \item Rol $\rightarrow$ dados em ordem crescente
+    \begin{center}
+        \boxed{
+        \begin{tabular}{c c c c c}
+            18 & 20 & 22 & 26 & 34 \\
+            18 & 20 & 23 & 28 & 35 \\
+            19 & 21 & 25 & 29 & 35 \\
+            19 & 22 & 25 & 31 & 
+        \end{tabular}
+    } $\rightarrow n = 19 \rightarrow$ 
+    nº de dados (idades)
+    \end{center}
+\end{enumerate}
+
+% chapter Anotações: (end)
+\section{Regra de Sturges}
+nº de classes:
+\begin{multline*}
+    \boxed{i = 1 + 3.3 \cdot \log{n}}\\
+    i = 1 + 3.3 \cdot \log{19}\\
+    i = 5.\cancel{2198}\ldots\\
+    \boxed{i = 5 \text{ classes (linhas)}}
+\end{multline*}
+Amplitude das classes:
+\[
+    h = \frac{AT}{i}
+\]
+onde \\$AT = \text{Amplitude Total}$\\
+$AT = (\text{ maior } - \text{ menor }) \text{ valor do Rol}$
+\[
+    AT = 35 - 18 = 17 \rightarrow \boxed{AT = 17}
+\]
+\[
+    h = \frac{AT}{i} = \frac{17}{5} = 3.4 \rightarrow \boxed{h = 3}
+\]
+$h$ é o intervalo entre cada linha. ex: 18 $\vdash$ 21.
+\section{Idades dos alunos do 3º Banco de Dados, Fatec SJC, 22/08/19}
+\begin{center}
+    \begin{tabular}{c | c | c | c | c | c}
+        \hline
+        i & Idades & $fi$ & $fri$ ( \%) & $Fi$ & $Fri$ (\%) \\
+        \hline
+        1 & 18 $\vdash$ 21 & 6 & 31,58 & 6 & 52,63k  \\
+        2 & 21 $\vdash$ 24 & 4 & 21,05 & 10 & 52,63k \\
+        3 & 24 $\vdash$ 27 & 3 & 15,79 & 13 & 52,63k \\
+        4 & 27 $\vdash$ 30 & 2 & 10,53 & 15 & 52,63k \\
+        5 & 30 $\vdash$ 33 & 1 & 5,26 & 16 & 52,63k \\
+        6 & 33 $\vdash$ 36 & 3 & 15,79 & 19 & 52,63k \\
+        \hline
+          &                & $\Sigma fi = 19$  & $ \Sigma fi = 100 $      &    & 
+    \end{tabular}
+\end{center}
+\subsection{Cálculos relevantes:}
+\[
+    \boxed{\fr_i = \frac{fi}{\Sigma fi}}
+\]
+\[
+    \fr_1 = \frac{Fi}{\Sigma fi} = \frac{6}{19} \times 100 = \cancelto{\boxed{31.58}}{31.578}
+\]
+\[
+    \fr_2 = \frac{F_2}{\Sigma fi} = \frac{10}{19} \times 100 = \boxed{52.63\cancel{1}}
+\]
+\[
+    \fr_3 = \frac{F_3}{\Sigma fi} = \frac{13}{19} \times 100 = \boxed{68.42\cancel{1}}
+\]
+\[
+    \fr_4 = \frac{F_3}{\Sigma fi} = \frac{13}{19} \times 100 = \boxed{68.42\cancel{1}}
+\]
+\[
+    \fr_5 = \frac{F_3}{\Sigma fi} = \frac{13}{19} \times 100 = \boxed{68.42\cancel{1}}
+\]
+\[
+    \fr_6 = \frac{F_3}{\Sigma fi} = \frac{13}{19} \times 100 = \boxed{68.42\cancel{1}}
+\]
+\end{document}
+

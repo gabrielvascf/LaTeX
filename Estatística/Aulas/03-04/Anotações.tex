@@ -1,0 +1,115 @@
+
+\documentclass{jhwhw}
+\usepackage{pgfplots}
+\usepackage{cancel}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage[portuguese]{babel}
+
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+
+\newcommand{\dx}{\mathrm{dx}}
+\newcommand{\du}{\mathrm{du}}
+\newcommand{\fr}{\mathrm{Fr}}
+\begin{document}
+\author{Gabriel Vasconcelos Ferreira}
+\title{%
+	Aula 2 \\
+	\large Medidas de Distribuição de Frequências \\
+}
+\maketitle
+\chapter{Medidas de dispersão ou variabilidade}
+\section{Variância da amostra}
+Fórmula:
+\[
+	\boxed{S = \sqrt{\frac{\sum{(X_i-\overline{X})^2\cdot f_i}}{n-1}}} \text{ onde: } \begin{cases}
+		X_i = \text{variável } \mid X_i = Pmi = \text{pontos médios} \\
+		n = \text{total de dados} = \sum{f_i}                        \\
+		f_i = \text{frequências das classes}                         \\
+		\overline{X} = \text{média aritmética}
+	\end{cases}
+\]
+\section{Desvio padrão da amostra}
+Fórmula:
+\[
+	\boxed{S = \sqrt{\frac{\sum{(X_i-\overline{X})^2\cdot f_i}}{n-1}}} \text{ ou } \boxed{S = \sqrt{\text{Variância}}}
+\]
+\section{Medida de dispersão relativa}
+Coeficiente de variação:
+\[
+	C.V = \frac{S}{\overline{X}} \cdot 100 (\%)
+\]
+\chapter{Exemplos}
+\section{Exemplo 1}
+Os resultados de uma amostra do número de crianças
+por família em uma região estão dispostos na tabela
+abaixo. Determine a variância e o desvio padrão.
+\begin{center}
+	\begin{tabular}{c | c | c | c | c }
+		\hline
+		i & $X_i$ & $f_i$                    & $X_i f_i$                     & $(X_i - \overline{X})^2 f_i$                                    \\
+		\hline
+		1 & 0     & 10                       & 0                             & $(0-1.8)^2\cdot10 = 32.4$                                       \\
+		2 & 1     & 19                       & 19                            & $(1-1.8)^2\cdot10 = 12.16$                                      \\
+		3 & 2     & 7                        & 14                            & $(2-1.8)^2\cdot7 = 0.28$                                        \\
+		4 & 3     & 7                        & 21                            & $(3-1.8)^2\cdot7 = 10.08$                                       \\
+		5 & 4     & 2                        & 8                             & $(4-1.8)^2\cdot2 = 9.68$                                        \\
+		6 & 5     & 1                        & 5                             & $(5-1.8)^2\cdot1 = 10.24$                                       \\
+		7 & 6     & 4                        & 24                            & $(6-1.8)^2\cdot4 = 70.56$                                       \\
+		\hline
+		  &       & $\sum^n_{i=1} f_i = 50 $ & $ \sum^n_{i=1} X_i f_i = 91 $ & $\displaystyle\sum_{i=1}^{n}(X_i - \overline{X})^2 f_i = 145,4$
+	\end{tabular}\\
+\end{center}
+Média: \[
+	\overline{X} = \frac{\sum_{i=1}^{n} X_i f_i}{\sum_{i=1}^{n} f_i} = \frac{91}{50} = 1.8 \text{ crianças}
+\]
+Variância: \[
+	s^2 = \frac{\sum_{i=1}^{n} (X_i - \overline{X})^2 \cdot f_i}{n-1} = \frac{145.4}{50-1} = 2.967 \text{ crianças}
+\]
+Desvio padrão: \[
+	s = \sqrt{2.967} = 1.7 \text{ crianças}
+\]
+\section{Exemplo 2}
+O resultado de uma sondagem na qual mil adultos foram
+indagados sobre quanto gastavam anualmente na preparação
+de uma viagem de férias resultou na distribuição de frequência
+abaixo. Estime a média, a variância e o desvio padrão amostrais
+do conjunto de dados.
+\begin{table}
+	\centering
+	\resizebox{\columnwidth}{!}{%
+		\begin{tabular}{c | c | c | c | c | c }
+			\hline
+			i & Gastos (US\$)    & $f_i$                      & $X_i = Pm_i$                  & $X_i f_i$                                                       & $(X_i - \overline{X})^2 f_i$    \\
+			\hline
+			1 & 0 $\vdash$ 100   & 380                        & $\frac{(0+100)}{2} = 50 $     & $50 \cdot 380 = 19000$                                          & $(50-189)^2\cdot380 = 7341980$  \\
+			\hline
+			2 & 100 $\vdash$ 200 & 230                        & $\frac{(100+200)}{2} = 150 $  & $ 150 \cdot 230 = 34500 $                                       & $(150-189)^2\cdot 230 = 349830$ \\
+			\hline
+			3 & 200 $\vdash$ 300 & 210                        & $\frac{(200+300)}{2} = 250$   & $250 \cdot 210 = 52500$                                         & $(250-189)^2*210 = 781410$      \\
+			\hline
+			4 & 300 $\vdash$ 400 & 50                         & $\frac{(300+400)}{2} = 350$   & $350 \cdot 50 = 17500$                                          & $(350-189)^2*50 = 1296050$      \\
+			\hline
+			5 & 400 $\vdash$ 500 & 60                         & $\frac{(400+500)}{2} = 450$   & $450 \cdot 60 = 27000$                                          & $(450-189)^2*60 = 4087260$      \\
+			\hline
+			6 & 500 $\vdash$ 600 & 70                         & $\frac{(500+600)}{2} = 550$   & $550 \cdot 70 =   38500$                                        & $(550-189)^2*70 = 9122470$      \\
+			\hline
+              &                  & $\sum^n_{i=1} f_i = 1000 $ &  & $ \sum^n_{i=1} X_i f_i = 189000 $ & $\displaystyle\sum_{i=1}^{n}(X_i - \overline{X})^2 f_i = 22979000$ \\
+		\end{tabular}%
+	}
+\end{table}
+
+Média: \[
+	\overline{X} = \frac{\sum_{i=1}^{n} X_i f_i}{\sum_{i=1}^{n} f_i} = \frac{189000}{1000} = 189 \text{ dólares}
+\]
+Variância: \[
+	s^2 = \frac{\sum_{i=1}^{n} (X_i - \overline{X})^2 \cdot f_i}{n-1} = \frac{22979000}{1000-1} = 230002.002 \text{ dólares}
+\]
+Desvio padrão: \[
+	s = \sqrt{230002.002} = 151.66 \text{ dólares}
+\]
+\end{document}

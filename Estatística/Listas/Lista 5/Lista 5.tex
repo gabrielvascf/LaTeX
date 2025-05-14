@@ -1,0 +1,250 @@
+\documentclass{jhwhw}
+\usepackage{pgfplots}
+\usepackage{cancel}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage[portuguese]{babel}
+
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{trees, arrows}
+
+\newcommand{\dx}{\mathrm{dx}}
+\newcommand{\du}{\mathrm{du}}
+\newcommand{\fr}{\mathrm{Fr}}
+
+\tikzstyle{level 1}=[level distance=3.5cm, sibling distance=3.5cm]
+\tikzstyle{level 2}=[level distance=3.5cm, sibling distance=2cm]
+
+% Define styles for bags and leafs
+\tikzstyle{bag} = [text width=4em, text centered]
+\tikzstyle{end} = [circle, minimum width=3pt,fill, inner sep=0pt]
+
+\begin{document}
+\author{Gabriel Vasconcelos Ferreira}
+\title{%
+	Estatística\\Lista 5 --- Probabilidade
+}
+\maketitle
+\anyproblem{1) Em um lote de 12 peças, 4 são defeituosas, sendo retirada uma peça aleatoriamente, calcule:}
+\begin{enumerate}[label=\alph*)]
+	\item A probabilidade dessa peça ser defeituosa.
+	\item A probabilidade dessa peça não ser defeituosa.
+\end{enumerate}
+\begin{enumerate}[label=\alph*)]
+	\item A probabilidade de retirar uma peça defeituosa é dada pela razão entre o número de peças defeituosas e o total de peças no lote. Assim, temos:
+	      \begin{equation*}
+		      P(\text{defeituosa}) = \frac{\text{número de peças defeituosas}}{\text{total de peças}} = \frac{4}{12} = \frac{1}{3} \approx 0,3333 \approx \boxed{33\%}
+	      \end{equation*}
+	\item A probabilidade de retirar uma peça não defeituosa é dada pela razão entre o número de peças não defeituosas e o total de peças no lote. Assim, temos:
+	      \begin{equation*}
+		      P(\text{não defeituosa}) = \frac{\text{número de peças não defeituosas}}{\text{total de peças}} = \frac{8}{12} = \frac{2}{3} \approx 0,6667 \approx \boxed{67\%}
+	      \end{equation*}
+\end{enumerate}
+\anyproblem{2) Qual a probabilidade de se obter soma 7 ou soma 11 numa jogada com dois dados?}
+\begin{gather*}
+	\text{Soma 7:} \quad (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) \Rightarrow 6 \text{ possibilidades}\\
+	\text{Soma 11:} \quad (5,6), (6,5) \Rightarrow 2 \text{ possibilidades}\\
+	\text{Total de possibilidades:} \quad 6 + 2 = 8\\
+	P(\text{soma 7 ou soma 11}) = \frac{8}{36} = \frac{2}{9} \approx 0,2222 \approx \boxed{22\%}
+\end{gather*}
+\anyproblem{3) Considere uma pessoa em visita a Brasília. As probabilidades dessa pessoa visitar o edifício do Congresso, P(C), o Palácio da Alvorada, P(A), ou ambos P(C $\cap$ A), são, respectivamente, 0,92; 0,33 e 0,29. Qual é a probabilidade dessa pessoa visitar o Congresso ou o Palácio da Alvorada, ou seja, P(C $\cup$ A)?}
+\begin{gather*}
+	P(C \cup A) = P(C) + P(A) - P(C \cap A)\\
+	P(C \cup A) = 0.92 + 0.33 - 0.29\\
+	P(C \cup A) = 0.92 + 0.33 - 0.29 = 1.25 - 0.29 = 0.96 \approx \boxed{96\%}
+\end{gather*}
+\anyproblem{4) A probabilidade de uma pessoa que vai em um posto de gasolina pedir verificação do nível do óleo é P(O) = 0,28, a probabilidade de pedir verificação da pressão dos pneus é P(P) = 0,11 e a probabilidade de solicitar ambas as verificações é P(O $\cap$ P) = 0,04. Qual é a probabilidade de que uma pessoa que vai em um posto de gasolina solicite verificação do nível de óleo ou da pressão dos pneus, ou seja, P(O U P)?}
+\begin{gather*}
+	P(O \cup P) = P(O) + P(P) - P(O \cap P)\\
+	P(O \cup P) = 0.28 + 0.11 - 0.04\\
+	P(O \cup P) = 0.28 + 0.11 - 0.04 = 0.39 \approx \boxed{39\%}
+\end{gather*}
+\anyproblem{5) Sejam três urnas. A primeira contém 3 bolas brancas, 4 pretas e 2 verdes. A segunda contém 5 brancas, 2 pretas e 1 verde. Na terceira, há 2 bolas brancas, 3 pretas e 4 verdes. Uma bola é retirada ao acaso de cada urna. Qual a probabilidade de se retirar bola branca da primeira urna, bola preta da segunda urna e bola verde da terceira, respectivamente?}
+\begin{gather*}
+	P(B_1) = \frac{3}{9} = \frac{1}{3}\\
+	P(P_2) = \frac{2}{8} = \frac{1}{4}\\
+	P(V_3) = \frac{4}{9}\\
+	P(B_1 \cap P_2 \cap V_3) = P(B_1) \cdot P(P_2) \cdot P(V_3)\\
+	P(B_1 \cap P_2 \cap V_3) = \frac{1}{3} \cdot \frac{1}{4} \cdot \frac{4}{9} = \frac{4}{108} = \frac{1}{27} \approx 0,0370 \approx \boxed{3,70\%}
+\end{gather*}
+\anyproblem{6) Uma moeda é lançada 3 vezes. Qual a probabilidade de obter-se três caras, ou seja, obter cara na primeira, na segunda e na terceira vez?}
+\begin{gather*}
+	P(C_1) = P(C_2) = P(C_3) = \frac{1}{2} \\
+	P(C_1 \cap C_2 \cap C_3) = P(C_1) \cdot P(C_2) \cdot P(C_3)\\
+	P(C_1 \cap C_2 \cap C_3) = \frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8} = 0,1250 = \boxed{12,50\%};
+\end{gather*}
+\anyproblem{7) Num baralho simples de 52 cartas, tiram-se duas cartas. Qual a probabilidade que ambas sejam de espada?}
+\begin{gather*}
+	P(E_1) = \frac{13}{52} = \frac{1}{4}\\
+	P(E_2) = \frac{12}{51}\\
+	P(E_1 \cap E_2) = P(E_1) \cdot P(E_2)\\
+	P(E_1 \cap E_2) = \frac{1}{4} \cdot \frac{12}{51} = \frac{12}{204} = \frac{1}{17} \approx 0,0588 \approx \boxed{5,88\%}
+\end{gather*}
+\anyproblem{8) Dada a tabela abaixo, complete-a com o total de dados de cada linha e de cada coluna e encontre o total de dados. Se uma pessoa é escolhida ao acaso:}
+\begin{enumerate}
+	\item Qual a probabilidade de ser homem, ou seja, $P(H)$?
+	\item Qual a probabilidade de ser adulto, ou seja, $P(A)$?
+	\item Qual a probabilidade de ser mulher, dado que a pessoa é menor de idade, ou seja, $P(M/Me)$?
+	\item Sabendo-se que o elemento escolhido é adulto, qual a probabilidade de ser homem, ou seja, $P(H/A)$?
+\end{enumerate}
+\begin{center}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		                      & \textbf{Homens} & \textbf{Mulheres} & \textbf{Total} \\ \hline
+		\textbf{Menores (Me)} & 5               & 3                 & 8              \\ \hline
+		\textbf{Adultos (A)}  & 5               & 2                 & 7              \\ \hline
+		\textbf{Total}        & 10              & 5                 & 15             \\ \hline
+	\end{tabular}
+\end{center}
+\begin{enumerate}[label=\alph*)]
+	\item A probabilidade de ser homem é dada pela razão entre o número de homens e o total de pessoas. Assim, temos:
+	      \begin{equation*}
+		      P(H) = \frac{\text{número de homens}}{\text{total de pessoas}} = \frac{10}{15} = \frac{2}{3} \approx 0,6667 \approx \boxed{66,67\%}
+	      \end{equation*}
+	\item A probabilidade de ser adulto é dada pela razão entre o número de adultos e o total de pessoas. Assim, temos:
+	      \begin{equation*}
+		      P(A) = \frac{\text{número de adultos}}{\text{total de pessoas}} = \frac{7}{15} \approx 0,4667 \approx \boxed{46,67\%}
+	      \end{equation*}
+	\item A probabilidade de ser mulher dado que a pessoa é menor de idade é dada pela razão entre o número de mulheres menores e o total de menores. Assim, temos:
+	      \begin{equation*}
+		      P(M/Me) = \frac{\text{número de mulheres menores}}{\text{total de menores}} = \frac{3}{8} = 0,3750 = \boxed{37,50\%}
+	      \end{equation*}
+	\item A probabilidade de ser homem dado que a pessoa é adulta é dada pela razão entre o número de homens adultos e o total de adultos. Assim, temos:
+	      \begin{equation*}
+		      P(H/A) = \frac{\text{número de homens adultos}}{\text{total de adultos}} = \frac{5}{7} \approx 0,7143 \approx \boxed{71,43\%}
+	      \end{equation*}
+\end{enumerate}
+\anyproblem{9) A probabilidade de se chegar ao estacionamento antes das 8 horas é P(A)=0,40. Nessas condições, a probabilidade de encontrar lugar (estacionar) é 0,60. Chegando depois das 8 horas, a probabilidade de encontrar lugar (estacionar) é 0,30.}
+\begin{enumerate}
+	\item Qual a probabilidade de estacionar, ou seja, $P(E)$? Para resolver, use o diagrama de árvore e/ou o Teorema da Probabilidade Total.
+	\item Qual a probabilidade, entre os carros que estão estacionados, dos que chegaram antes das 8 horas, ou seja $P(A/E)$? Para resolver, use o diagrama de árvore e/ou o Teorema de Bayes.
+\end{enumerate}
+\begin{enumerate}
+	\item Probabilidade de estacionar pelo diagrama de árvore:
+	      \begin{center}
+		      \begin{tikzpicture}[grow=right, sloped]
+			      \node[bag] {Chegar}
+			      child { % superior
+			      node[bag] {Depois das 8h}
+			      child {
+			      node[end, label=right: {$P(B \cap E) = 0.60 \cdot 0.30 = 0.18 = 18\%$}]{}
+			      edge from parent
+			      node[above] {$E$}
+			      node[below] {$0.30$}
+			      }
+			      child {
+			      node[end, label=right: {$P(B \cap E') = 0.60 \cdot 0.70 = 0.42 = 42\%$}]{}
+			      edge from parent
+			      node[above] {$E'$}
+			      node[below] {$0.70$}
+			      }
+			      edge from parent
+			      node[above] {$B$}
+			      node[below]  {$0.60$}
+			      }
+			      child { % inferior
+			      node[bag] {Antes das 8h}
+			      child {
+			      node[end, label=right: {$P(A \cap E) = 0.40 \cdot 0.60 = 0.24 = 24\%$}]{}
+			      edge from parent
+			      node[above] {$E$}
+			      node[below] {$0.60$}
+			      }
+			      child {
+			      node[end, label=right: {$P(A \cap E') = 0.40 \cdot 0.40 = 0.16 = 16\%$}]{}
+			      edge from parent
+			      node[above] {$E'$}
+			      node[below] {$0.40$}
+			      }
+			      edge from parent
+			      node[above] {$A$}
+			      node[below] {$0.40$}
+			      };
+		      \end{tikzpicture}
+	      \end{center}
+	      Assim, temos:
+	      \begin{gather*}
+		      P(E) = P(B \cap E) + P(A \cap E)\\
+		      P(E) = 0.60 \cdot 0.30 + 0.40 \cdot 0.60\\
+		      P(E) = 0.24 + 0.18 = 0.42 = \boxed{42\%}
+	      \end{gather*}
+	\item Probabilidade de estacionar dado que chegou antes das 8 horas pelo Teorema de Bayes:
+	      \begin{gather*}
+		      P(A/E) = \frac{P(A \cap E)}{P(E)}\\
+		      P(A/E) = \frac{P(A) \cdot P(E/A)}{P(E)}\\
+		      P(A/E) = \frac{0.40 \cdot 0.60}{0.42} = 0.5714 = \boxed{57.14\%}
+	      \end{gather*}
+\end{enumerate}
+\anyproblem{10) A probabilidade de um indivíduo da classe A comprar um carro é de ¾, da B é 1/5 e da C é de 1/20. As probabilidades de os indivíduos comprarem um carro da marca X são, 1/10, 3/5 e 3/10, dado que sejam de A, B e C, respectivamente. Certa loja vendeu um carro da marca X. Qual a probabilidade de que o indivíduo que a comprou seja da classe B, ou seja, P(B/X)? Para resolver, use o diagrama de árvore e/ou o Teorema de Bayes.}
+Pelo diagrama da árvore:
+\begin{center}
+	\begin{tikzpicture}[grow=right, sloped]
+		\node[bag] {Classe}
+		child {
+		node[bag] {C}
+		child {
+		node[end, label=right: {$P(C \cap X) = 0.05 \cdot 0.30 = 0.015 = 1.5\%$}]{}
+		edge from parent
+		node[above] {$X$}
+		node[below] {$0.30$}
+		}
+		child {
+		node[end, label=right: {$P(C \cap X') = 0.05 \cdot 0.70 = 0.035 = 3.5\%$}]{}
+		edge from parent
+		node[above] {$X'$}
+		node[below] {$0.70$}
+		}
+		edge from parent
+		node[above] {$C$}
+		node[below]  {$0.05$}
+		}
+		child {
+		node[bag] {B}
+		child {
+		node[end, label=right: {$P(B \cap X) = 0.20 \cdot 0.60 = 0.12 = 12\%$}]{}
+		edge from parent
+		node[above] {$X$}
+		node[below] {$0.60$}
+		}
+		child {
+		node[end, label=right: {$P(B \cap X') = 0.20 \cdot 0.40 = 0.80 = 8\%$}]{}
+		edge from parent
+		node[above] {$X'$}
+		node[below] {$0.40$}
+		}
+		edge from parent
+		node[above] {$B$}
+		node[below]  {$0.20$}
+		}
+		child {
+		node[bag] {A}
+		child {
+		node[end, label=right: {$P(A \cap X) = 0.75 \cdot 0.10 = 0.075 = 7.5\%$}]{}
+		edge from parent
+		node[above] {$X$}
+		node[below] {$0.10$}
+		}
+		child {
+		node[end, label=right: {$P(A \cap X') = 0.75 \cdot 0.90 = 0.675 = 67.5\%$}]{}
+		edge from parent
+		node[above] {$X'$}
+		node[below] {$0.90$}
+		}
+		edge from parent
+		node[above] {$A$}
+		node[below] {$0.75$}
+		};
+	\end{tikzpicture}
+\end{center}
+Pelo teorema de Bayes:
+\begin{gather*}
+	P(B/X) = \frac{P(B \cap X)}{P(X)}\\
+	P(X) = P(A \cap X) + P(B \cap X) + P(C \cap X)\\
+	P(X) = 0.075 + 0.12 + 0.015 = 0.21\\
+	P(B/X) = \frac{P(B \cap X)}{P(X)} = \frac{0.12}{0.21} = 0.5714 = \boxed{57.14\%}
+\end{gather*}
+\end{document}

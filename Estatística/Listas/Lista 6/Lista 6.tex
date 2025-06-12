@@ -1,0 +1,214 @@
+\documentclass{jhwhw}
+\usepackage{pgfplots}
+\usepackage{cancel}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage[portuguese]{babel}
+
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{trees, arrows}
+
+\newcommand{\dx}{\mathrm{dx}}
+\newcommand{\du}{\mathrm{du}}
+\newcommand{\fr}{\mathrm{Fr}}
+
+\tikzstyle{level 1}=[level distance=3.5cm, sibling distance=3.5cm]
+\tikzstyle{level 2}=[level distance=3.5cm, sibling distance=2cm]
+
+% Define styles for bags and leafs
+\tikzstyle{bag} = [text width=4em, text centered]
+\tikzstyle{end} = [circle, minimum width=3pt,fill, inner sep=0pt]
+
+\begin{document}
+\author{Gabriel Vasconcelos Ferreira}
+\title{%
+	Estatística\\Lista 6 --- Distribuições de Probabilidade\\
+}
+\maketitle
+\section*{Distribuição Binomial}
+\anyproblem{1) A probabilidade de um atirador acertar o alvo é de 2/3. Se ele atirar 5 vezes, qual é a probabilidade de acertar exatamente 2 tiros?}
+\begin{gather*}
+	P(X = k) = \frac{n!}{k!(n-k)!} \cdot p^k \cdot q^{n-k} \\
+	P(X = 2) = \frac{5!}{2!(5-2)!} \cdot \left(\frac{2}{3}\right)^2 \cdot \left(\frac{1}{3}\right)^{5-2} \\
+	P(X = 2) = \frac{120}{2 \cdot 6} \cdot \left(\frac{4}{9}\right) \cdot \left(\frac{1}{27}\right) \\
+	P(X = 2) = 10 \cdot \frac{4}{9} \cdot \frac{1}{27} \\
+	P(X = 2) = 10 \cdot \frac{4}{243} = \frac{40}{243} \approx 0.1646 \approx \boxed{16.46\%}
+\end{gather*}
+\anyproblem{2) Dois times de futebol A e B jogam entre si 6 vezes. Encontre a probabilidade de o time A ganhar 2 ou 3 jogos.}
+\[
+	P(X = k) = \frac{n!}{k!(n-k)!} \cdot p^k \cdot q^{n-k}\\
+\]
+\begin{align*}
+	P(X = 2) & = \frac{6!}{2!(6-2)!} \cdot \left(\frac{1}{2}\right)^2 \cdot \left(\frac{1}{2}\right)^{6-2} & P(X = 3) & = \frac{6!}{3!(6-3)!} \cdot \left(\frac{1}{2}\right)^3 \cdot \left(\frac{1}{2}\right)^{6-3} \\
+	P(X = 2) & = \frac{6!}{2!4!} \cdot \frac{1}{4} \cdot \frac{1}{16}                                      & P(X = 3) & = \frac{720}{3!3!} \cdot \frac{1}{8} \cdot \frac{1}{8}                                      \\
+	P(X = 2) & = \frac{720}{2 \cdot 24} \cdot \frac{1}{64}                                                 & P(X = 3) & = \frac{720}{6 \cdot 6} \cdot \frac{1}{64}                                                  \\
+	P(X = 2) & = \frac{720}{48} \cdot \frac{1}{64}                                                         & P(X = 3) & = \frac{720}{36} \cdot \frac{1}{64}                                                         \\
+	P(X = 2) & = \frac{720}{3072}                                                                          & P(X = 3) & = \frac{720}{2304}                                                                          \\
+\end{align*}
+\begin{align*}
+	P(X = 2) + P(X = 3) & = \frac{720}{3072} + \frac{720}{2304}                    \\
+	P(X = 2) + P(X = 3) & = \frac{720 \cdot 3}{9216} + \frac{720 \cdot 4}{9216}    \\
+	P(X = 2) + P(X = 3) & = \frac{2160 + 2880}{9216}                               \\
+	P(X = 2) + P(X = 3) & = \frac{5040}{9216}                                      \\
+	P(X = 2) + P(X = 3) & = \frac{35}{64} \approx 0.546875 \approx \boxed{54.69\%}
+\end{align*}
+\anyproblem{3) Num hospital 5 pacientes devem submeter-se a um tipo de operação, da qual 80\% sobrevivem. Qual a probabilidade que todos sobrevivam?}
+\begin{gather*}
+	P(X = k) = \frac{n!}{k!(n-k)!} \cdot p^k \cdot q^{n-k} \\
+	P(X = 5) = \frac{\cancel{5!}}{\cancel{5!}\cancel{(5-5)}!} \cdot (0.8)^5 \cdot (0.2)^{5-5} \\
+	P(X = 5) = 1 \cdot (0.8)^5 \cdot \cancel{(0.2)^0} \\
+	P(X = 5) = (0.8)^5 \\
+	P(X = 5) = 0.32768 \approx \boxed{32.77\%}
+\end{gather*}
+\anyproblem{4) Se 20\% dos parafusos produzidos por uma máquina são defeituosos, determine a probabilidade, entre 4 parafusos escolhidos ao acaso:
+	\begin{enumerate}[label=\alph*)]
+		\item nenhum ser defeituoso.
+		      \begin{gather*}
+			      P(X = 0) = \frac{4!}{0!(4-0)!} \cdot (0.2)^0 \cdot (0.8)^4 \\
+			      P(X = 0) = \frac{4!}{0!4!} \cdot 1 \cdot (0.8)^4 \\
+			      P(X = 0) = 1 \cdot (0.8)^4 \\
+			      P(X = 0) = (0.8)^4 \\
+			      P(X = 0) = 0.4096 \approx \boxed{40.96\%}
+		      \end{gather*}
+		\item no máximo dois terem defeito.
+		      \begin{gather*}
+			      P(X \leq 2) = P(X = 0) + P(X = 1) + P(X = 2) \\
+			      P(X = 0) = (0.8)^4 \\
+			      P(X = 1) = \frac{4!}{1!(4-1)!} \cdot (0.2)^1 \cdot (0.8)^3 \\
+			      P(X = 1) = \frac{4!}{1!3!} \cdot (0.2)^1 \cdot (0.8)^3 \\
+			      P(X = 1) = 4 \cdot (0.2) \cdot (0.512) \\
+			      P(X = 1) = 4 \cdot 0.1024 = 0.4096 \\
+			      P(X = 2) = \frac{4!}{2!(4-2)!} \cdot (0.2)^2 \cdot (0.8)^2 \\
+			      P(X = 2) = \frac{4!}{2!2!} \cdot (0.04) \cdot (0.64) \\
+			      P(X = 2) = 6 \cdot (0.04) \cdot (0.64)\\
+			      P(X = 2) = 6 \cdot 0.0256 = 0.1536\\
+			      P(X \leq 2) = P(X=0)+P(X=1)+P(X=2)\\
+			      P(X \leq 2) = 0.4096+0.4096+0.1536 \\
+			      P(X \leq 2) = 0.9728 \approx\boxed{97.28\%}
+		      \end{gather*}
+	\end{enumerate}
+}
+\section*{Distribuição Geométrica}
+\anyproblem{1) A probabilidade de uma máquina produzir uma peça defeituosa, num dia, e de 0,1. Qual a probabilidade de que a 10ª peça produzida no dia seja a 1ª defeituosa?}
+\begin{gather*}
+	P(X = k) = q^{k-1} \cdot p \\
+	P(X = 10) = (0.9)^{10-1} \cdot (0.1) \\
+	P(X = 10) = (0.9)^9 \cdot (0.1) \\
+	P(X = 10) = 0.387420489 \cdot 0.1 \\
+	P(X = 10) \approx 0.0387420489 \approx \boxed{3.87\%}
+\end{gather*}
+\anyproblem{2) João deve a Antônio R\$130,00. Cada viagem de Antônio à casa de João custa R\$20,00, e a probabilidade de João ser encontrado em casa é 1/3. Se Antônio encontrar João, conseguirá cobrar a dívida. Qual a probabilidade de Antônio ter de ir mais de 3 vezes à casa de João para conseguir cobrar a dívida?}
+\begin{gather*}
+	P(X = k) = q^{k-1} \cdot p \\
+	P(X > 3) = 1 - P(X \leq 3) \\
+	P(X \leq 3) = P(X = 1) + P(X = 2) + P(X = 3) \\
+	P(X = 1) = \left(\frac{2}{3}\right)^0 \cdot \frac{1}{3} = \frac{1}{3} \\
+	P(X = 2) = \left(\frac{2}{3}\right)^1 \cdot \frac{1}{3} = \frac{2}{9} \\
+	P(X = 3) = \left(\frac{2}{3}\right)^2 \cdot \frac{1}{3} = \frac{4}{27} \\
+	P(X \leq 3) = \frac{1}{3} + \frac{2}{9} + \frac{4}{27} \\
+	P(X \leq 3) = \frac{9}{27} + \frac{6}{27} + \frac{4}{27} \\
+	P(X \leq 3) = \frac{19}{27} \\
+	P(X > 3) = 1 - P(X \leq 3)\\
+	P(X > 3) = \frac{27}{27} - \frac{19}{27}=\frac{8}{27}\approx\boxed{29.63\%}
+\end{gather*}
+\anyproblem{3) Suponha que a probabilidade de um componente de computador ser defeituoso é de 0,2. Numa mesa de testes, uma batelada é posta à prova, um a um. Determine a probabilidade de o primeiro defeito encontrado ocorrer no sétimo componente testado.}
+\begin{gather*}
+	P(X = k) = q^{k-1} \cdot p \\
+	P(X = 7) = (0.8)^{7-1} \cdot (0.2) \\
+	P(X = 7) = (0.8)^6 \cdot (0.2) \\
+	P(X = 7) = 0.262144 \cdot 0.2 \\
+	P(X = 7) \approx 0.0524288 \approx \boxed{5.24\%}
+\end{gather*}
+\anyproblem{4) Em jogadas repetidas de um dado honesto, qual a probabilidade de o primeiro 6 ocorrer na quinta jogada?}
+\begin{gather*}
+	P(X = k) = q^{k-1} \cdot p \\
+	P(X = 5) = \left(\frac{5}{6}\right)^{5-1} \cdot \left(\frac{1}{6}\right) \\
+	P(X = 5) = \left(\frac{5}{6}\right)^4 \cdot \left(\frac{1}{6}\right) \\
+	P(X = 5) = \frac{625}{1296} \cdot \frac{1}{6} \\
+	P(X = 5) = \frac{625}{7776} \approx 0.0804 \approx \boxed{8.04\%}
+\end{gather*}
+\section*{Distribuição de Poisson}
+\anyproblem{1) As chamadas de emergência chegam a uma delegacia de polícia á razão de 4 chamadas/hora, e podem ser aproximadas por uma distribuição de Poisson. Qual é a probabilidade de não haver nenhuma chamada no período de 30 minutos? (1/2 hora?)}
+\[
+	P(X = x) = \frac{e^{-\lambda t} \cdot \left(\lambda t\right)^x}{x!}
+\]
+Onde:
+\begin{itemize}
+	\item $e$ é a base do logaritmo natural, aproximadamente 2.71828;
+	\item $\lambda$ é a taxa média de ocorrências por unidade de tempo (neste caso, 4 chamadas/hora);
+	\item $t$ é o tempo considerado (neste caso, 0.5 horas);
+	\item $x$ é o número de ocorrências (neste caso, 0 chamadas).
+\end{itemize}
+\begin{gather*}
+	P(X = x) = \frac{e^{-\lambda t} \cdot \left(\lambda t\right)^x}{x!}\\
+	P(X = 0) = \frac{e^{-\frac{4}{h} \cdot \frac{1h}{2}} \cdot \cancel{\left(\frac{4}{h} \cdot \frac{1h}{2}\right)^0}}{0!}  \\
+	P(X = 0) = \frac{e^{-2} \cdot 1}{1} \\
+	P(X = 0) = e^{-2} \\
+	P(X = 0) \approx 0.1353352832 \approx \boxed{13.53\%}
+\end{gather*}
+\anyproblem{2) Um posto telefônico recebe uma média de 10 chamadas por minuto. A distribuição é de Poisson. Pede-se a probabilidade de ocorrer menos de três chamadas em 2 minutos.}
+\begin{gather*}
+	P(X < 3) = P(X = 0) + P(X = 1) + P(X = 2) \\
+	P(X = x) = \frac{e^{-\lambda t} \cdot \left(\lambda t\right)^x}{x!} \\
+	\lambda t = 10 \cdot 2 = 20 \\
+	P(X < 3) = P(X = 0) + P(X = 1) + P(X = 2) \\
+	P(X = 0) = \frac{e^{-20} \cdot (20)^0}{0!} = e^{-20} \\
+	P(X = 1) = \frac{e^{-20} \cdot (20)^1}{1!} = e^{-20} \cdot 20 \\
+	P(X = 2) = \frac{e^{-20} \cdot (20)^2}{2!} = e^{-20} \cdot \frac{400}{2} = e^{-20} \cdot 200\\
+	P(X < 3) = e^{-20} + e^{-20} \cdot 20 + e^{-20} \cdot 200\\
+	P(X < 3) = e^{-20}(1 + 20 + 200)\\
+	P(X < 3) = e^{-20}(221)\\
+  P(X < 3) \approx e^{-20}(221)\approx{0.00000045551495055892} \approx 0.0000456\% 
+\end{gather*}
+\anyproblem{3) Os clientes chegam a uma loja à razão de 6,5/h (Poisson). Determine a probabilidade de que durante qualquer 1 hora não chegue nenhum cliente.}
+\begin{gather*}
+  P(X = x) = \frac{e^{-\lambda t} \cdot \left(\lambda t\right)^x}{x!}\\
+  P(X = 0) = \frac{e^{-6.5} \cdot (6.5)^0}{0!} \\
+  P(X = 0) = e^{-6.5} \\
+  P(X = 0) \approx 0.00150343919297757245 \approx \boxed{0.15\%}
+\end{gather*}
+\anyproblem{4) O fluxo de carros que passam em determinado pedágio é de 1,7 carros/min. Qual a probabilidade de passarem exatamente 2 carros em 2 minutos?}
+\begin{gather*}
+  P(X = x) = \frac{e^{-\lambda t} \cdot \left(\lambda t\right)^x}{x!}\\
+  \lambda t = 1.7 \cdot 2 = 3.4\\
+  P(X = 2) = \frac{e^{-3.4} \cdot (3.4)^2}{2!} \\
+  P(X = 2) = \frac{e^{-3.4} \cdot 11.56}{2} \\
+  P(X = 2) = e^{-3.4} \cdot 5.78\\
+  P(X = 2) \approx 0.19289750037068473939 \approx \boxed{19.28\%}
+\end{gather*}
+\newpage
+\section*{Distribuição Normal}
+\anyproblem{1) A duração de um certo componente eletrônico tem média de vida $\overline{X} = 850$ dias e desvio padrão $\sigma = 50$ dias, sabendo-se que a duração é normalmente distribuída, calcule a probabilidade desse componente durar menos de 750 dias.}
+\begin{gather*}
+  Z = \frac{X - \overline{X}}{\sigma} \\
+  Z = \frac{750 - 850}{50} = \frac{-100}{50} = -2 \\
+  P(X < 750) = P(Z < -2) \\
+  P(Z < -2) = 0.0228 \approx \boxed{2.28\%}
+\end{gather*}
+\anyproblem{2) O processo de empacotamento de uma companhia de cereais foi ajustado de maneira que uma média $\overline{X} = 13.0$kg é colocada em cada saco. O desvio padrão é $0.1$kg. Sabe-se que a distribuição dos pesos segue uma distribuição normal. Determinar a probabilidade de que um saco escolhido aleatoriamente contenha entre 13.1 e 13.2 kg.}
+\begin{gather*}
+  Z_1 = \frac{13.1 - 13.0}{0.1} = 1 \\
+  Z_2 = \frac{13.2 - 13.0}{0.1} = 2 \\
+  P(13.1 < X < 13.2) = P(1 < Z < 2) \\
+  P(Z < 2) - P(Z < 1) = 0.9772 - 0.8413 = 0.1359 \approx \boxed{13.59\%}
+\end{gather*}
+\anyproblem{3) As vendas de um determinado produto têm apresentado distribuição normal com média de 600 unidades/mês e desvio padrão de 40 unidades/mês. Qual é a probabilidade dessa empresa atingir produção maior que 700?}
+\begin{gather*}
+  Z = \frac{X - \overline{X}}{\sigma} \\
+  Z = \frac{700 - 600}{40} = \frac{100}{40} = 2.5 \\
+  P(X > 700) = P(Z > 2.5) \\
+  P(Z > 2.5) = 1 - P(Z < 2.5) = 1 - 0.9938 = 0.0062 \approx \boxed{0.62\%}
+\end{gather*}
+\anyproblem{4) Os pesos de 600 estudantes são normalmente distribuídos com média aritmética $\overline{X} = 65.3$kg e desvio padrão $\sigma = 5.5$kg. Determinar o número de estudantes quepesam entre 60 e 70 kg.}
+\begin{gather*}
+  Z_1 = \frac{60 - 65.3}{5.5} = \frac{-5.3}{5.5} \approx -0.9636 \\
+  Z_2 = \frac{70 - 65.3}{5.5} = \frac{4.7}{5.5} \approx 0.8545 \\
+  P(60 < X < 70) = P(-0.9636 < Z < 0.8545) \\
+  P(Z < 0.8545) - P(Z < -0.9636) = 0.8033 - 0.1685 = 0.6348 \\
+  N = P(60 < X < 70) \cdot 600 = 0.6348 \cdot 600 \approx 380.88 \approx \boxed{380}
+\end{gather*}
+\end{document}

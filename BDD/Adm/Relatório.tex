@@ -15,10 +15,10 @@
     filecolor=magenta,      
     urlcolor=cyan,
     pdftitle={Relatório de Laboratório: Administração de Usuários Oracle},
-    pdfauthor={Gemini},
 }
 \usepackage{amsmath}
 \usepackage{graphicx}
+\graphicspath{Figuras}
 
 % --- CONFIGURAÇÃO DO AMBIENTE DE CÓDIGO (LISTINGS) ---
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -50,24 +50,14 @@
 
 % --- INFORMAÇÕES DO DOCUMENTO ---
 \title{Relatório de Laboratório: Administração de Usuários Oracle}
-\author{Gabriel Vasconcelos}
+\author{Gabriel Vasconcelos Ferreira}
 \date{\today}
 
 % --- INÍCIO DO DOCUMENTO ---
 \begin{document}
 
 \maketitle
-
-\begin{abstract}
-Este relatório documenta os passos executados em um laboratório de administração de usuários no Oracle Database. O objetivo é estudar os comandos de gerenciamento de usuários, privilégios e \textit{roles}, além de explorar as visões do dicionário de dados relevantes para monitorar a segurança e a estrutura do banco de dados.
-\end{abstract}
-
-\tableofcontents
 \newpage
-
-\section{Objetivo do Laboratório}
-O objetivo principal deste laboratório é aprofundar o conhecimento sobre a criação e administração de usuários no Oracle. Isso inclui a concessão de privilégios de sistema e de objeto, o uso de \textit{roles} para simplificar a gestão de permissões e a consulta a visões do dicionário de dados para auditar e verificar as configurações de segurança aplicadas.
-
 \section{Conexão com SYSTEM e Análise Inicial}
 A primeira etapa consiste em conectar-se com o usuário \texttt{SYSTEM}, que possui privilégios administrativos, e verificar informações básicas sobre o ambiente.
 
@@ -77,9 +67,9 @@ SELECT * FROM v$version;
 \end{lstlisting}
 \textbf{Finalidade:} A visão dinâmica \texttt{v\$version} fornece informações sobre a versão do software Oracle Database e seus componentes instalados. Ela é útil para identificar a edição do banco de dados (ex: Enterprise, Standard, Express), a versão principal e de patch, e a compatibilidade do hardware. O resultado mostra, por exemplo:
 \begin{itemize}
-    \item Oracle Database 19c Enterprise Edition Release 19.0.0.0.0
-    \item PL/SQL Release 19.0.0.0.0
-    \item TNS for Linux: Version 19.0.0.0.0
+	\item Oracle Database 19c Enterprise Edition Release 19.0.0.0.0
+	\item PL/SQL Release 19.0.0.0.0
+	\item TNS for Linux: Version 19.0.0.0.0
 \end{itemize}
 
 \subsection{Visão \texttt{dba\_users}}
@@ -99,10 +89,10 @@ CREATE USER USR_LAB01
 \end{lstlisting}
 \textbf{Explicação do Comando:}
 \begin{itemize}
-    \item \texttt{CREATE USER USR\_LAB01}: Comando que inicia a criação de um novo usuário chamado \texttt{USR\_LAB01}.
-    \item \texttt{IDENTIFIED BY SENHA}: Define a senha inicial do usuário como \texttt{SENHA}.
-    \item \texttt{DEFAULT TABLESPACE users}: Especifica que todos os objetos criados por este usuário (como tabelas e índices) serão armazenados na \textit{tablespace} chamada \texttt{users}, a menos que outra seja explicitamente indicada.
-    \item \texttt{QUOTA UNLIMITED ON users}: Concede ao usuário uma cota ilimitada de espaço de armazenamento na \textit{tablespace} \texttt{users}. Sem uma cota, o usuário não poderia criar objetos nela.
+	\item \texttt{CREATE USER USR\_LAB01}: Comando que inicia a criação de um novo usuário chamado \texttt{USR\_LAB01}.
+	\item \texttt{IDENTIFIED BY SENHA}: Define a senha inicial do usuário como \texttt{SENHA}.
+	\item \texttt{DEFAULT TABLESPACE users}: Especifica que todos os objetos criados por este usuário (como tabelas e índices) serão armazenados na \textit{tablespace} chamada \texttt{users}, a menos que outra seja explicitamente indicada.
+	\item \texttt{QUOTA UNLIMITED ON users}: Concede ao usuário uma cota ilimitada de espaço de armazenamento na \textit{tablespace} \texttt{users}. Sem uma cota, o usuário não poderia criar objetos nela.
 \end{itemize}
 
 \subsection{Comando \texttt{GRANT CONNECT, RESOURCE}}
@@ -111,13 +101,16 @@ GRANT CONNECT, RESOURCE to USR_LAB01;
 \end{lstlisting}
 \textbf{Finalidade das Roles \texttt{CONNECT} e \texttt{RESOURCE}:}
 \begin{itemize}
-    \item \textbf{\texttt{CONNECT}}: É uma \textit{role} que agrupa privilégios básicos de sistema. O mais fundamental é o \texttt{CREATE SESSION}, que permite ao usuário conectar-se ao banco de dados. Sem este privilégio, a tentativa de login falharia com o erro "ORA-01045: user lacks CREATE SESSION privilege".
-    \item \textbf{\texttt{RESOURCE}}: Esta \textit{role} concede privilégios para criar objetos no próprio \textit{schema} do usuário, como \texttt{CREATE TABLE}, \texttt{CREATE PROCEDURE}, \texttt{CREATE TRIGGER}, entre outros.
+	\item \textbf{\texttt{CONNECT}}: É uma \textit{role} que agrupa privilégios básicos de sistema. O mais fundamental é o \texttt{CREATE SESSION}, que permite ao usuário conectar-se ao banco de dados. Sem este privilégio, a tentativa de login falharia com o erro "ORA-01045: user lacks CREATE SESSION privilege".
+	\item \textbf{\texttt{RESOURCE}}: Esta \textit{role} concede privilégios para criar objetos no próprio \textit{schema} do usuário, como \texttt{CREATE TABLE}, \texttt{CREATE PROCEDURE}, \texttt{CREATE TRIGGER}, entre outros.
 \end{itemize}
 \textbf{Observação:} A Oracle atualmente recomenda a criação de \textit{roles} customizadas com os privilégios mínimos necessários, em vez de usar \texttt{CONNECT} e \texttt{RESOURCE}, que podem conceder mais permissões do que o necessário.
 
 \subsection{Teste de Conexão}
-Após a criação e a concessão da \textit{role} \texttt{CONNECT}, abriu-se uma nova janela de terminal/SQL Developer e foi possível conectar com o usuário \texttt{USR\_LAB01} e a senha \texttt{SENHA}. (figura pendente).
+Após a criação e a concessão da \textit{role} \texttt{CONNECT}, abriu-se uma nova janela de terminal/SQL Developer e foi possível conectar com o usuário \texttt{USR\_LAB01} e a senha \texttt{SENHA}.
+\begin{center}
+	\includegraphics[scale=0.5]{Figuras/LoginUSR_LAB01.png}
+\end{center}
 
 \section{Gerenciamento de Senha e Sessão}
 
@@ -138,8 +131,8 @@ SELECT table_name FROM all_tables;
 \subsection{Tentativa de Nova Conexão}
 Após encerrar a sessão de \texttt{USR\_LAB01}, tentou-se conectar novamente.
 \begin{itemize}
-    \item \textbf{Usando a senha antiga (\texttt{SENHA}):} A conexão falhou com o erro "ORA-01017: invalid username/password".
-    \item \textbf{Usando a nova senha (\texttt{new\_password}):} A conexão foi bem-sucedida.
+	\item \textbf{Usando a senha antiga (\texttt{SENHA}):} A conexão falhou com o erro "ORA-01017: invalid username/password".
+	\item \textbf{Usando a nova senha (\texttt{new\_password}):} A conexão foi bem-sucedida.
 \end{itemize}
 \textbf{O que aconteceu?} O comando \texttt{ALTER USER} efetivou a troca da senha no dicionário de dados. Qualquer nova autenticação deve, obrigatoriamente, usar a credencial atualizada.
 
@@ -170,7 +163,8 @@ O comando funcionou, exibindo a estrutura da tabela \texttt{xyz}, confirmando qu
 \begin{lstlisting}
 DESC system.xyz
 \end{lstlisting}
-\textbf{Esse comando funcionou?} Não. O comando resultou no erro "ORA-04043: object system.xyz does not exist" ou "ORA-01031: insufficient privileges".\\
+\textbf{Esse comando funcionou?} Não. O comando resultou no erro "ORA-04043: object system.xyz does not exist".\\
+\includegraphics[width=\textwidth]{Figuras/SHOW_SYSXYZ.png}
 \textbf{O que falta ao usuário \texttt{USR\_LAB01}?} Falta o privilégio de acessar objetos do \textit{schema} \texttt{SYSTEM}. Para que o comando \texttt{DESC} (e outros como \texttt{SELECT}) funcione, o usuário \texttt{USR\_LAB01} precisaria receber o privilégio \texttt{SELECT} sobre a tabela \texttt{system.xyz} ou um privilégio mais amplo como \texttt{SELECT ANY TABLE}.
 
 \section{Concessão de Privilégios de Objeto}
@@ -191,7 +185,8 @@ GRANT CONNECT TO USR_lab02;
 \begin{lstlisting}
 select * from dba_tab_privs where grantee = 'USR_LAB02';
 \end{lstlisting}
-\textbf{Qual o significado do resultado?} Esta consulta à visão \texttt{dba\_tab\_privs} (privilégios de tabelas) mostra todos os privilégios de objeto concedidos a \texttt{USR\_LAB02}. O resultado exibirá três linhas, indicando que o \texttt{GRANTEE} (beneficiário) \texttt{USR\_LAB02} recebeu os privilégios (\texttt{PRIVILEGE}) \texttt{INSERT}, \texttt{DELETE} e \texttt{SELECT} na tabela (\texttt{TABLE\_NAME}) \texttt{XYZ} do proprietário (\texttt{OWNER}) \texttt{USR\_LAB01}.
+\textbf{Qual o significado do resultado?} Esta consulta à visão \texttt{dba\_tab\_privs} (privilégios de tabelas) mostra todos os privilégios de objeto concedidos a \texttt{USR\_LAB02}. O resultado exibirá três linhas, indicando que o \texttt{GRANTEE} (beneficiário) \texttt{USR\_LAB02} recebeu os privilégios (\texttt{PRIVILEGE}) \texttt{INSERT}, \texttt{DELETE} e \texttt{SELECT} na tabela (\texttt{TABLE\_NAME}) \texttt{XYZ} do proprietário (\texttt{OWNER}) \texttt{USR\_LAB01}.\\
+\includegraphics[width=\textwidth]{Figuras/SELECT_DBA_TAB_PRIVS.png}
 
 \subsection{Operações do \texttt{USR\_LAB02}}
 Conectado como \texttt{USR\_LAB02}:
@@ -211,8 +206,8 @@ select * from xyz;
 \end{lstlisting}
 \textbf{Explicação do porquê NÃO funcionaram:}
 \begin{itemize}
-    \item \texttt{select * from system.xyz;}: Falhou porque \texttt{USR\_LAB02} não tem permissão de acesso à tabela \texttt{xyz} do \textit{schema} \texttt{SYSTEM}.
-    \item \texttt{select * from xyz;}: Falhou porque, ao omitir o \textit{schema}, o Oracle procura por uma tabela chamada \texttt{xyz} no \textit{schema} do próprio usuário (\texttt{USR\_LAB02}). Como essa tabela não existe, um erro é retornado.
+	\item \texttt{select * from system.xyz;}: Falhou porque \texttt{USR\_LAB02} não tem permissão de acesso à tabela \texttt{xyz} do \textit{schema} \texttt{SYSTEM}.
+	\item \texttt{select * from xyz;}: Falhou porque, ao omitir o \textit{schema}, o Oracle procura por uma tabela chamada \texttt{xyz} no \textit{schema} do próprio usuário (\texttt{USR\_LAB02}). Como essa tabela não existe, um erro é retornado.
 \end{itemize}
 
 \section{Gerenciamento de Privilégios com Roles}
@@ -243,35 +238,21 @@ select * from dba_sys_privs;
 \end{lstlisting}
 \textbf{Explicação do processo:}
 \begin{enumerate}
-    \item Foi criada uma \textit{role} customizada chamada \texttt{new\_dba}.
-    \item A esta \textit{role} foram concedidos privilégios de sistema importantes: \texttt{CONNECT}, \texttt{SELECT ANY TABLE} (permite ler dados de qualquer tabela em qualquer \textit{schema}, exceto \texttt{SYS}) e \texttt{SELECT\_CATALOG\_ROLE} (uma \textit{role} pré-definida que concede privilégio de leitura sobre as visões do dicionário de dados).
-    \item A \textit{role} \texttt{new\_dba}, contendo todos esses privilégios, foi então concedida ao usuário \texttt{USR\_LAB01}.
-    \item Ao herdar os privilégios da \textit{role}, \texttt{USR\_LAB01} passou a ter permissão para consultar a visão \texttt{dba\_sys\_privs} e muitas outras, tornando o comando bem-sucedido.
+	\item Foi criada uma \textit{role} customizada chamada \texttt{new\_dba}.
+	\item A esta \textit{role} foram concedidos privilégios de sistema importantes: \texttt{CONNECT}, \texttt{SELECT ANY TABLE} (permite ler dados de qualquer tabela em qualquer \textit{schema}, exceto \texttt{SYS}) e \texttt{SELECT\_CATALOG\_ROLE} (uma \textit{role} pré-definida que concede privilégio de leitura sobre as visões do dicionário de dados).
+	\item A \textit{role} \texttt{new\_dba}, contendo todos esses privilégios, foi então concedida ao usuário \texttt{USR\_LAB01}.
+	\item Ao herdar os privilégios da \textit{role}, \texttt{USR\_LAB01} passou a ter permissão para consultar a visão \texttt{dba\_sys\_privs} e muitas outras, tornando o comando bem-sucedido.
 \end{enumerate}
 
 \section{Análise Final de Privilégios}
 As seguintes visões permitem auditar como os privilégios e \textit{roles} foram distribuídos.
 
 \begin{itemize}
-    \item \texttt{select * from dba\_sys\_privs}: Mostra os privilégios de sistema concedidos diretamente a usuários ou \textit{roles}.
-    \item \texttt{SELECT * FROM DBA\_ROLE\_PRIVS}: Lista quais \textit{roles} foram concedidas a quais usuários (ex: mostra que \texttt{USR\_LAB01} possui a \textit{role} \texttt{NEW\_DBA}).
-    \item \texttt{SELECT * FROM ROLE\_ROLE\_PRIVS}: Mostra \textit{roles} que foram concedidas a outras \textit{roles}.
-    \item \texttt{SELECT * FROM ROLE\_SYS\_PRIVS}: Detalha quais privilégios de sistema uma \textit{role} possui (ex: mostra que \texttt{NEW\_DBA} tem o privilégio \texttt{SELECT ANY TABLE}).
-    \item \texttt{SELECT * FROM ROLE\_TAB\_PRIVS}: Detalha quais privilégios de objeto (em tabelas, views, etc.) uma \textit{role} possui.
+	\item \texttt{select * from dba\_sys\_privs}: Mostra os privilégios de sistema concedidos diretamente a usuários ou \textit{roles}.
+	\item \texttt{SELECT * FROM DBA\_ROLE\_PRIVS}: Lista quais \textit{roles} foram concedidas a quais usuários (ex: mostra que \texttt{USR\_LAB01} possui a \textit{role} \texttt{NEW\_DBA}).
+	\item \texttt{SELECT * FROM ROLE\_ROLE\_PRIVS}: Mostra \textit{roles} que foram concedidas a outras \textit{roles}.
+	\item \texttt{SELECT * FROM ROLE\_SYS\_PRIVS}: Detalha quais privilégios de sistema uma \textit{role} possui (ex: mostra que \texttt{NEW\_DBA} tem o privilégio \texttt{SELECT ANY TABLE}).
+	\item \texttt{SELECT * FROM ROLE\_TAB\_PRIVS}: Detalha quais privilégios de objeto (em tabelas, views, etc.) uma \textit{role} possui.
 \end{itemize}
-
-\section{Apêndice: Comandos Utilitários Oracle XE}
-Os comandos abaixo são úteis para administrar o ambiente Oracle Database Express Edition (XE) em um sistema Windows.
-
-\begin{itemize}
-    \item \texttt{set path=C:\textbackslash oraclexe\textbackslash app\textbackslash oracle\textbackslash product\textbackslash 11.2.0\textbackslash server\textbackslash bin;\textbackslash \%path\textbackslash \%}: \\Adiciona o diretório de executáveis do Oracle ao \texttt{PATH} do sistema, permitindo que comandos como \texttt{sqlplus} e \texttt{lsnrctl} sejam executados de qualquer local no terminal.
-    \item \texttt{lsnrctl status}: Utilitário de controle do Listener. O comando \texttt{status} verifica o estado do Oracle Listener, que é o processo responsável por "escutar" por requisições de conexão de clientes e direcioná-las para a instância do banco de dados.
-    \item \texttt{netstat -a}: Comando do sistema operacional que lista todas as portas de rede ativas e conexões. É útil para verificar se a porta padrão do Oracle Listener (geralmente 1521) está aberta e escutando.
-    \item \texttt{sqlplus /nolog}: Inicia o cliente de linha de comando SQL*Plus sem tentar se conectar a um banco de dados, útil para se conectar a diferentes instâncias posteriormente.
-    \item \texttt{conn user/senha}: Dentro do SQL*Plus, este comando é usado para conectar-se (ou trocar de conexão) a um banco de dados com o usuário e senha especificados.
-\end{itemize}
-
-\section{Conclusão}
-Este laboratório proporcionou uma experiência prática e fundamental sobre a arquitetura de segurança do Oracle Database. Através da execução de comandos \texttt{CREATE USER}, \texttt{GRANT}, \texttt{ALTER USER} e \texttt{CREATE ROLE}, foi possível compreender a separação entre usuários (\textit{schemas}), a distinção entre privilégios de sistema e de objeto, e o poder das \textit{roles} para uma administração de permissões eficiente e escalável. A exploração das visões do dicionário de dados demonstrou como auditar e validar a correta implementação das políticas de segurança.
 
 \end{document}
